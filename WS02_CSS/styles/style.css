@@ -1,0 +1,11 @@
+p {
+      color: rgba(60, 162, 240, 0.996);
+    }
+    
+    body {
+      background-color: lightgray;
+    }
+    
+    h1 {
+      font-size: 2em;
+    }
