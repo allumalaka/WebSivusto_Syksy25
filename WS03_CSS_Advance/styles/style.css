@@ -1,0 +1,117 @@
+p {
+      color: rgba(0, 0, 0, 0.996);
+    }
+    
+    body {
+      background-color: rgba(169, 152, 139, 0.861);
+    }
+    
+    h1 {
+      font-size: 2em;
+    }
+    div {
+      padding: 20px;
+      margin: 10px;
+    }
+    .highlight {
+      background-color: rgb(0, 0, 0);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid #ffffff;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #2fde69;
+    }Shorthand property for setting borde
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    input[type="text"], input[type="email"] {
+      padding: 8px;
+      border: 1px solid #000000;
+      border-radius: 4px;
+    }
+    
+    input[type="submit"] {
+      background-color: #36cd28;
+      color: rgb(255, 255, 255);
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #19a7b9;
+    }
+    .transition-button {
+        background-color: rgba(235, 238, 246, 0.073);
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      
+      .transition-button:hover {
+        background-color: rgba(28, 173, 15, 0.491);
+      }
+      .animation-box {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(0, 0, 0, 0.205);
+        position: relative;
+        animation: move 3s infinite alternate;
+      }
+      
+      @keyframes move {
+        from {
+          left: 0;
+        }
+        to {
+          left: 1990px;
+        }
+      }
+      .pseudo-list li:nth-child(odd) {
+        background-color: rgb(211, 136, 60);
+      }
+      
+      .pseudo-list li:nth-child(even) {
+        background-color: rgba(198, 40, 40, 0.621);
+      }
+      .filter-image {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+      
+      .filter-image:hover {
+        filter: grayscale(0%);
+      }
+      .quote {
+        position: relative;
+        padding-left: 20px;
+        font-style: italic;
+      }
+      
+      .quote::before {
+        content: '“';
+        font-size: 20px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: rgb(219, 122, 31);
+      }

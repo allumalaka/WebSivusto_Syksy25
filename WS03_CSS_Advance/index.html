@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First HTML Page</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <h1>Aleksis Lazarides</h1>
+        <p>Minä opiskelen Laureassa.</p>
+        <button id="escapeBtn" style="position: absolute; padding: 10px 20px;">
+  Yritä klikata!
+</button>
+
+<script>
+const btn = document.getElementById('escapeBtn');
+btn.addEventListener('mouseover', () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  btn.style.left = x + 'px';
+  btn.style.top = y + 'px';
+});
+</script>
+        <div class="animation-box"></div>
+        <img src="./images/aleksiskuva.jpg" alt="Aleksis Lazarides" class="filter-image"
+        width ="300" height="400">
+        <button class="transition-button">Hei</button>
+        <blockquote class="quote">
+        Mielenkiintoista hommaa!
+      </blockquote>
+        <h2>Harrastukset</h2>
+    <ol>
+        <li>Kuntosali</li>
+        <li>Musiikin kuuntelu</li>
+        <li>Lenkkeily</li>
+    </ol>
+    <a href="https://chatgpt.com/">chatgpt</a>
+    <table>
+    <tr>
+        <th>Suoritetut kurssit</th>
+        <th>Suorittamattomat kurssit</th>
+    </tr>
+    <tr>
+        <td>ICT-infrastruktuurin ja pilvipalveluiden perusteet</td>
+        <td>Professional Communication in English</td>
+    </tr>
+    <tr>
+        <td> Asiantuntijaviestintä ja projektityö</td>
+        <td>Websivuston kehittäminen</td>
+    </tr>
+    <tr>
+        <td>Digitaalisen palvelun perusteet</td>
+        <td>Liiketoimintaympäristö</td>
+    </tr>
+    <ul class="pseudo-list">
+        <li>Käsipaino 10-45kg</li>
+        <li>Levypaino 20kg</li>
+        <li>Rannetuki</li>
+        <li>Vyö</li>
+      </ul>
+    </table>
+    <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"><br><br>
+    <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
