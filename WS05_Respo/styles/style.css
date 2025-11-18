@@ -3,7 +3,7 @@ p {
     }
     
     body {
-      background-color: rgba(179, 177, 176, 0.861);
+      background-color: rgba(202, 203, 203, 0.861);
     }
     
     h1 {
@@ -22,13 +22,13 @@ p {
     }
     
     th, td {
-      border: 1px solid #ffffff;
+      border: 1px solid #000000;
       padding: 8px;
       text-align: left;
     }
     
     th {
-      background-color: #2bcccc;
+      background-color: #61b2b2;
     }Shorthand property for setting borde
     
     form {
@@ -48,8 +48,8 @@ p {
     }
     
     input[type="submit"] {
-      background-color: #2bcccc;
-      color: rgb(255, 255, 255);
+      background-color: #44cba0;
+      color: rgb(0, 0, 0);
       padding: 10px;
       border: none;
       border-radius: 4px;
@@ -57,7 +57,7 @@ p {
     }
     
     input[type="submit"]:hover {
-      background-color: #19a7b9;
+      background-color: #162528;
     }
     .transition-button {
         background-color: rgba(235, 238, 246, 0.073);
@@ -87,11 +87,11 @@ p {
         }
       }
       .pseudo-list li:nth-child(odd) {
-        background-color: rgb(160, 188, 211);
+        background-color: rgb(48, 115, 159);
       }
       
       .pseudo-list li:nth-child(even) {
-        background-color: rgba(58, 151, 149, 0.861);
+        background-color: rgba(135, 135, 135, 0.861);
       }
       .filter-image {
         filter: grayscale(100%);
@@ -122,7 +122,7 @@ p {
   }
   
   .box {
-    background-color: rgba(174, 214, 240);
+    background-color: rgb(195, 177, 157);
     padding: 35px;
     text-align: center;
   }
@@ -150,7 +150,7 @@ p {
   
   @media (min-width: 602px) {
     .responsive-box {
-      background-color: #2bcccc;
+      background-color: lightblue;
     }
   }
   .responsive-container {
@@ -179,7 +179,7 @@ p {
     
     @media (max-width: 600px) {
       .media-query-box {
-        background-color: lightcoral;
+        background-color: rgb(78, 84, 236);
       }
     }
     
