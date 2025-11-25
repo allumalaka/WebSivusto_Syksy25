@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerGym - Yhteystiedot</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">💪 PowerGym</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Etusivu</a></li>
+                <li><a href="treenit.html">Treenit</a></li>
+                <li><a href="ruokavalio.html">Ruokavalio</a></li>
+                <li><a href="yhteystiedot.html" class="active">Yhteystiedot</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Ota yhteyttä</h1>
+        
+        <section class="contact-info">
+            <div class="info-card">
+                <h2>📍 Osoite</h2>
+                <p>Orvokkikuja 1b<br>01300 Vantaa</p>
+            </div>
+            
+            <div class="info-card">
+                <h2>📞 Puhelin</h2>
+                <p>+358 40 123 4567</p>
+            </div>
+            
+            <div class="info-card">
+                <h2>📧 Sähköposti</h2>
+                <p>info@powergym.fi</p>
+            </div>
+            
+            <div class="info-card">
+                <h2>⏰ Aukioloajat</h2>
+                <p>24/7 - Auki ympäri vuorokauden</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Liittymislomake</h2>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="name">Nimi:</label>
+                    <input type="text" id="name" placeholder="Etunimi Sukunimi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Sähköposti:</label>
+                    <input type="email" id="email" placeholder="esimerkki@email.fi">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Puhelinnumero:</label>
+                    <input type="tel" id="phone" placeholder="+358 40 123 4567">
+                </div>
+                
+                <div class="form-group">
+                    <label for="membership">Jäsentyyppi:</label>
+                    <select id="membership">
+                        <option>Kuukausijäsenyys - 49€/kk</option>
+                        <option>Vuosijäsenyys - 490€/v</option>
+                        <option>Opiskelija - 35€/kk</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Viesti (valinnainen):</label>
+                    <textarea id="message" rows="4" placeholder="Kerro lisää tavoitteistasi..."></textarea>
+                </div>
+                
+                <button class="submit-button">Lähetä liittymispyyntö</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PowerGym. Kaikki oikeudet pidätetään.</p>
+    </footer>
+</body>
+</html>
