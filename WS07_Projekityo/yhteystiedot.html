@@ -138,6 +138,60 @@
         </section>
     </main>
 
+<!-- HTML -->
+<div class="snowflakes-container" id="snowContainer"></div>
+
+<!-- JavaScript -->
+<script>
+    function createSnowflake() {
+        const container = document.getElementById('snowContainer');
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        
+        // Vaihtelevat lumihiutaleet
+        const snowflakeSymbols = ['❄', '❅', '❆'];
+        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+        
+        // Satunnainen sijainti
+        snowflake.style.left = Math.random() * 100 + '%';
+        
+        // Satunnainen koko
+        const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
+        snowflake.style.fontSize = size + 'em';
+        
+        // Satunnainen putoamisnopeus
+        const duration = Math.random() * 10 + 10; // 10-20 sekuntia
+        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
+        
+        // Satunnainen viive
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        
+        // Satunnainen läpinäkyvyys
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
+        
+        container.appendChild(snowflake);
+        
+        // Poista lumihiutale kun se on pudonnut
+        setTimeout(() => {
+            snowflake.remove();
+        }, (duration + 5) * 1000);
+    }
+
+    // Luo lumihiutaleita säännöllisesti
+    function startSnowfall() {
+        // Luo alkuhiutaleet
+        for (let i = 0; i < 50; i++) {
+            setTimeout(() => createSnowflake(), i * 200);
+        }
+        
+        // Jatka luomista
+        setInterval(createSnowflake, 400);
+    }
+
+    // Käynnistä lumisade kun sivu on ladattu
+    window.addEventListener('DOMContentLoaded', startSnowfall);
+</script>
+
     <footer>
         <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
     </footer>

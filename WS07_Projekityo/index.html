@@ -463,8 +463,6 @@
             'hinnat': 'Kuukausijäsenyys 49€, Vuosijäsenyys 450€. Opiskelija 35€/kk.',
             'palvelut': 'Meillä on ammattitaitoinen PT, joka opastaa sinua ammattitaitoisesti omiin tavoitteisiisi!'
         };
-
-        // Näytä käyttäjän valinta
         const optionTexts = {
             'aukioloajat': 'Aukioloajat',
             'yhteystiedot': 'Yhteystiedot',
@@ -473,11 +471,7 @@
         };
         
         addMessage(optionTexts[option], false);
-        
-        // Näytä kirjoitusilmaisin
         showTyping();
-        
-        // Vastaa viiveellä
         setTimeout(() => {
             hideTyping();
             addMessage(responses[option], true);
@@ -515,17 +509,45 @@
             container.appendChild(light);
         }
     }
-
-    // Luo valot kun sivu latautuu
     window.addEventListener('DOMContentLoaded', createChristmasLights);
-    
-    // Päivitä valot jos ikkunan kokoa muutetaan
     window.addEventListener('resize', () => {
         const container = document.querySelector('.christmas-lights');
         const lights = container.querySelectorAll('.light');
         lights.forEach(light => light.remove());
         createChristmasLights();
     });
+</script>
+
+<!-- HTML -->
+<div class="snowflakes-container" id="snowContainer"></div>
+
+<!-- JavaScript -->
+<script>
+    function createSnowflake() {
+        const container = document.getElementById('snowContainer');
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        const snowflakeSymbols = ['❄', '❅', '❆'];
+        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+        snowflake.style.left = Math.random() * 100 + '%';
+        const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
+        snowflake.style.fontSize = size + 'em';
+        const duration = Math.random() * 10 + 10; // 10-20 sekuntia
+        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
+        container.appendChild(snowflake);
+        setTimeout(() => {
+            snowflake.remove();
+        }, (duration + 5) * 1000);
+    }
+    function startSnowfall() {
+        for (let i = 0; i < 50; i++) {
+            setTimeout(() => createSnowflake(), i * 200);
+        }
+        setInterval(createSnowflake, 400);
+    }
+    window.addEventListener('DOMContentLoaded', startSnowfall);
 </script>
 
     <footer>
