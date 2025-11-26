@@ -5,6 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerGym - Ruokavalio</title>
     <link rel="stylesheet" href="styles/style.css">
+    <style>
+    .toggle-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        background: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .toggle-btn:hover {
+        background: #f3f4f6;
+        transform: translateY(-2px);
+    }
+
+    body.colorblind-mode {
+        filter: grayscale(100%) contrast(120%);
+    }
+
+    body.colorblind-mode .toggle-btn {
+        background: #1f2937;
+        color: #fcd34d;
+        filter: none;
+    }
+</style>
 </head>
 <body>
     <nav class="navbar">
@@ -25,6 +59,29 @@
         <section class="nutrition-intro">
             <p>Hyvä ravinto on 70% tuloksista! Tässä perusohjeita eri tavoitteisiin.</p>
         </section>
+
+        <button class="toggle-btn" onclick="toggleColorBlindMode()">
+    <span id="icon">👁️</span>
+    <span id="btnText">Color Blind -tila</span>
+</button>
+
+<script>
+    function toggleColorBlindMode() {
+        const body = document.body;
+        const icon = document.getElementById('icon');
+        const btnText = document.getElementById('btnText');
+        
+        body.classList.toggle('colorblind-mode');
+        
+        if (body.classList.contains('colorblind-mode')) {
+            icon.textContent = '👁️';
+            btnText.textContent = 'Normaali tila';
+        } else {
+            icon.textContent = '🚫';
+            btnText.textContent = 'Color Blind -tila';
+        }
+    }
+</script>
 
         <section class="nutrition-section">
             <div class="nutrition-card">
