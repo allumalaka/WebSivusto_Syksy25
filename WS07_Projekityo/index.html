@@ -38,6 +38,292 @@
         color: #fcd34d;
         filter: none;
     }
+    .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .chat-button {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #000000 0%, #7b2525 100%);
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        transition: transform 0.3s ease;
+    }
+
+    .chat-button:hover {
+        transform: scale(1.1);
+    }
+
+    .chat-window {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 350px;
+        height: 500px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .chat-window.active {
+        display: flex;
+    }
+
+    .chat-header {
+        background: linear-gradient(135deg, #000000 0%, #7b2525 100%);
+        color: white;
+        padding: 20px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .chat-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+    }
+
+    .chat-messages {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        background: #f9fafb;
+    }
+
+    .message {
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .message.bot {
+        justify-content: flex-start;
+    }
+
+    .message.user {
+        justify-content: flex-end;
+    }
+
+    .message-bubble {
+        max-width: 70%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        line-height: 1.4;
+        font-size: 14px;
+    }
+
+    .message.bot .message-bubble {
+        background: white;
+        color: #1f2937;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .message.user .message-bubble {
+        background: linear-gradient(135deg, #000000 0%, #7b2525 100%);
+        color: white;
+        border-bottom-right-radius: 4px;
+    }
+
+    .chat-options {
+        padding: 15px;
+        background: white;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .option-button {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 8px;
+        background: #f3f4f6;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        text-align: left;
+    }
+
+    .option-button:hover {
+        background: #e5e7eb;
+        border-color: #667eea;
+    }
+
+    .option-button:last-child {
+        margin-bottom: 0;
+    }
+
+    .typing-indicator {
+        display: none;
+        padding: 12px 16px;
+        background: white;
+        border-radius: 18px;
+        border-bottom-left-radius: 4px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+    }
+
+    .typing-indicator.active {
+        display: block;
+    }
+
+    .typing-indicator span {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #9ca3af;
+        margin: 0 2px;
+        animation: typing 1.4s infinite;
+    }
+
+    .typing-indicator span:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .typing-indicator span:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes typing {
+        0%, 60%, 100% {
+            transform: translateY(0);
+        }
+        30% {
+            transform: translateY(-10px);
+        }
+    }
+</style>
+
+</style>
+
+<style>
+    .christmas-lights {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 60px;
+        z-index: 999;
+        pointer-events: none;
+    }
+
+    .lights-wire {
+        position: absolute;
+        left: 20px;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: #2d5016;
+    }
+
+    .light {
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        height: 30px;
+        border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        animation: twinkle 2s infinite;
+    }
+
+    .light::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 8px;
+        height: 8px;
+        background: #444;
+        border-radius: 2px;
+    }
+
+    .light::after {
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 3px;
+        width: 6px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+    }
+
+    .light.red {
+        background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000);
+        box-shadow: 0 0 20px #ff0000;
+    }
+
+    .light.green {
+        background: radial-gradient(circle at 30% 30%, #44ff44, #00cc00);
+        box-shadow: 0 0 20px #00ff00;
+    }
+
+    .light.blue {
+        background: radial-gradient(circle at 30% 30%, #4444ff, #0000cc);
+        box-shadow: 0 0 20px #0000ff;
+    }
+
+    .light.yellow {
+        background: radial-gradient(circle at 30% 30%, #ffff44, #cccc00);
+        box-shadow: 0 0 20px #ffff00;
+    }
+
+    .light.purple {
+        background: radial-gradient(circle at 30% 30%, #ff44ff, #cc00cc);
+        box-shadow: 0 0 20px #ff00ff;
+    }
+
+    .light.orange {
+        background: radial-gradient(circle at 30% 30%, #ffaa44, #ff6600);
+        box-shadow: 0 0 20px #ff8800;
+    }
+
+    @keyframes twinkle {
+        0%, 100% {
+            opacity: 1;
+            filter: brightness(1);
+        }
+        50% {
+            opacity: 0.4;
+            filter: brightness(0.6);
+        }
+    }
+
+    .light:nth-child(2) { animation-delay: 0s; }
+    .light:nth-child(3) { animation-delay: 0.3s; }
+    .light:nth-child(4) { animation-delay: 0.6s; }
+    .light:nth-child(5) { animation-delay: 0.9s; }
+    .light:nth-child(6) { animation-delay: 1.2s; }
+    .light:nth-child(7) { animation-delay: 1.5s; }
+    .light:nth-child(8) { animation-delay: 0.2s; }
+    .light:nth-child(9) { animation-delay: 0.5s; }
+    .light:nth-child(10) { animation-delay: 0.8s; }
+    .light:nth-child(11) { animation-delay: 1.1s; }
+    .light:nth-child(12) { animation-delay: 1.4s; }
+    .light:nth-child(13) { animation-delay: 0.4s; }
+    .light:nth-child(14) { animation-delay: 0.7s; }
+    .light:nth-child(15) { animation-delay: 1.0s; }
 </style>
 </head>
 <body>
@@ -109,6 +395,96 @@
     }
 </script>
 
+<div class="chatbot-container">
+    <button class="chat-button" onclick="toggleChat()">💬</button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>Chat-tuki</span>
+            <button class="chat-close" onclick="toggleChat()">×</button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-bubble">
+                    Hei! 👋 Miten voin auttaa sinua tänään?
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
+        <div class="chat-options" id="chatOptions">
+            <button class="option-button" onclick="selectOption('aukioloajat')">⏰ Aukioloajat</button>
+            <button class="option-button" onclick="selectOption('yhteystiedot')">📞 Yhteystiedot</button>
+            <button class="option-button" onclick="selectOption('hinnat')">💰 Hinnat</button>
+            <button class="option-button" onclick="selectOption('palvelut')">🛠️ Palvelut</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.classList.toggle('active');
+    }
+
+    function addMessage(text, isBot = true) {
+        const messagesDiv = document.getElementById('chatMessages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isBot ? 'bot' : 'user'}`;
+        
+        const bubble = document.createElement('div');
+        bubble.className = 'message-bubble';
+        bubble.textContent = text;
+        
+        messageDiv.appendChild(bubble);
+        messagesDiv.appendChild(messageDiv);
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function showTyping() {
+        document.getElementById('typingIndicator').classList.add('active');
+        const messagesDiv = document.getElementById('chatMessages');
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
+
+    function hideTyping() {
+        document.getElementById('typingIndicator').classList.remove('active');
+    }
+
+    function selectOption(option) {
+        const responses = {
+            'aukioloajat': 'Olemme avoinna ma-su 24/7. Tervetuloa pumppaamaan rautaa!.',
+            'yhteystiedot': 'Voit tavoittaa meidät:\n📧 info@example.com\n📞 +358 40 123 4567',
+            'hinnat': 'Kuukausijäsenyys 49€, Vuosijäsenyys 450€. Opiskelija 35€/kk.',
+            'palvelut': 'Meillä on ammattitaitoinen PT, joka opastaa sinua ammattitaitoisesti omiin tavoitteisiisi!'
+        };
+
+        // Näytä käyttäjän valinta
+        const optionTexts = {
+            'aukioloajat': 'Aukioloajat',
+            'yhteystiedot': 'Yhteystiedot',
+            'hinnat': 'Hinnat',
+            'palvelut': 'Palvelut'
+        };
+        
+        addMessage(optionTexts[option], false);
+        
+        // Näytä kirjoitusilmaisin
+        showTyping();
+        
+        // Vastaa viiveellä
+        setTimeout(() => {
+            hideTyping();
+            addMessage(responses[option], true);
+        }, 1000);
+    }
+</script>
+
          <section class="trainer-section">
             <h2>Tapaa valmentajamme</h2>
             <div class="trainer-card">
@@ -119,6 +495,38 @@
             </div>
         </section>
     </main>
+
+    <div class="christmas-lights">
+    <div class="lights-wire"></div>
+</div>
+
+<script>
+    function createChristmasLights() {
+        const container = document.querySelector('.christmas-lights');
+        const colors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+        const spacing = 80; // Valojen väli pikseleinä
+        const screenHeight = window.innerHeight;
+        const numLights = Math.floor(screenHeight / spacing);
+
+        for (let i = 0; i < numLights; i++) {
+            const light = document.createElement('div');
+            light.className = `light ${colors[i % colors.length]}`;
+            light.style.top = `${(i * spacing) + 40}px`;
+            container.appendChild(light);
+        }
+    }
+
+    // Luo valot kun sivu latautuu
+    window.addEventListener('DOMContentLoaded', createChristmasLights);
+    
+    // Päivitä valot jos ikkunan kokoa muutetaan
+    window.addEventListener('resize', () => {
+        const container = document.querySelector('.christmas-lights');
+        const lights = container.querySelectorAll('.light');
+        lights.forEach(light => light.remove());
+        createChristmasLights();
+    });
+</script>
 
     <footer>
         <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
