@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Launch - Into the Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: #0a1128;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 30px 50px;
+            z-index: 1000;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #e0e1dd;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Tähdet taustalla */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(180deg, #1a2332 0%, #0d1b2a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #e0e1dd;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #b1b3b8;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #4a148c 0%, #1a0033 100%);
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(74, 20, 140, 0.5), 0 0 40px rgba(74, 20, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(138, 43, 226, 0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(74, 20, 140, 0.8), 
+                        0 0 60px rgba(138, 43, 226, 0.6),
+                        0 0 90px rgba(138, 43, 226, 0.4);
+            background: linear-gradient(135deg, #6a1b9a 0%, #4a148c 100%);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            position: relative;
+            padding: 80px 20px;
+            background: #0d1b2a;
+            z-index: 2;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(26, 35, 50, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .card p {
+            color: #b1b3b8;
+            line-height: 1.6;
+        }
+
+        /* Rocket Section */
+        .rocket-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0d1b2a 0%, #1a2332 100%);
+            display: flex;
+            align-items: center;
+            padding: 80px 20px;
+            z-index: 2;
+        }
+
+        .rocket-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .rocket-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #e0e1dd;
+        }
+
+        .rocket-text p {
+            font-size: 1.1rem;
+            color: #b1b3b8;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .rocket-image {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Info Boxes */
+        .info-boxes {
+            position: relative;
+            padding: 80px 20px;
+            background: #0d1b2a;
+            z-index: 2;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .info-box {
+            background: rgba(26, 35, 50, 0.8);
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+
+        .info-box p {
+            color: #b1b3b8;
+            line-height: 1.8;
+        }
+
+        /* Discovery Section */
+        .discovery-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0d1b2a 0%, #1a2332 100%);
+            display: flex;
+            align-items: center;
+            padding: 80px 20px;
+            z-index: 2;
+        }
+
+        .discovery-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .discovery-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: #e0e1dd;
+        }
+
+        .discovery-image {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #1a2332 0%, #0d1b2a 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .discovery-content p {
+            font-size: 1.2rem;
+            color: #b1b3b8;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .rocket-content,
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .rocket-text h2,
+            .discovery-content h2 {
+                font-size: 2rem;
+            }
+
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Etusivu</a>
+        <a href="palvelut.html">Palvelut</a>
+        <a href="tietoa.html">Tietoa</a>
+        <a href="yhteystiedot.html">Yhteystiedot</a>
+    </nav>
+
+    <!-- Tähdet -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Launching into the<br>Future</h1>
+        <p>Explore the infinite possibilities of space exploration and technological advancement</p>
+        <a href="get-started.html" class="cta-button"><span>Get Started</span></a>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="cards-container">
+            <div class="card">
+                <h3>🚀 Unparalleled Speed</h3>
+                <p>Experience breakthrough velocity with our advanced propulsion systems designed for the next generation of space travel.</p>
+            </div>
+            <div class="card">
+                <h3>🛰️ Pioneered Technology</h3>
+                <p>Cutting-edge innovations that push the boundaries of what's possible in aerospace engineering and exploration.</p>
+            </div>
+            <div class="card">
+                <h3>🌍 Worldwide Reach</h3>
+                <p>Global infrastructure supporting missions across continents and beyond our atmosphere.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rocket Section -->
+    <section class="rocket-section">
+        <div class="rocket-content">
+            <div class="rocket-text">
+                <h2>Elevating the Standards</h2>
+                <p>Our revolutionary spacecraft design represents a quantum leap forward in reliability, efficiency, and safety.</p>
+                <p>Built with precision engineering and tested under the most extreme conditions, our vehicles set new benchmarks for the industry.</p>
+            </div>
+            <div class="rocket-image">🚀</div>
+        </div>
+    </section>
+
+    <!-- Info Boxes -->
+    <section class="info-boxes">
+        <div class="info-container">
+            <div class="info-box">
+                <h3>Cutting-Edge Innovation</h3>
+                <p>Our research and development team works tirelessly to pioneer new technologies that make space more accessible and sustainable for future generations.</p>
+            </div>
+            <div class="info-box">
+                <h3>Proven Track Record</h3>
+                <p>With dozens of successful launches and a flawless safety record, we've established ourselves as leaders in the commercial space industry.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discovery Section -->
+    <section class="discovery-section">
+        <div class="discovery-content">
+            <h2>Discover the Unknown</h2>
+            <div class="discovery-image">🌌</div>
+            <p>Join us on a journey beyond the stars. Our mission is to make space exploration accessible, sustainable, and inspiring for all humanity.</p>
+        </div>
+    </section>
+
+    <script>
+        // Luo tähtiä
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 150;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', createStars);
+    </script>
+</body>
+</html>
+   
