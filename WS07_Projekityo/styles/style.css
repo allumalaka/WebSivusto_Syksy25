@@ -72,7 +72,7 @@ body {
 /* Painikkeet */
 .cta-button {
     display: inline-block;
-    background: #4740d7;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
     color: #ffffff;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -83,7 +83,7 @@ body {
 
 .cta-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(8, 0, 255, 0.572);
 }
 
 /* Container */
@@ -94,7 +94,7 @@ body {
 }
 
 .container h1 {
-    color: #4740d7;
+    color: #000000;
     margin-bottom: 2rem;
     font-size: 2.5rem;
 }
@@ -108,7 +108,8 @@ body {
 }
 
 .feature-card {
-    background: #ffffff;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
+    color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -131,8 +132,8 @@ body {
 }
 
 .cta-section h2 {
-    color: #4740d7;
-    margin-bottom: 1rem;
+    color: #000000
+    margin-bottom 1rem;
 }
 
 /* Workout cards */
@@ -144,14 +145,15 @@ body {
 }
 
 .workout-card {
-    background: #ffffff;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
+    color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .workout-card h2 {
-    color: #4740d7;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -166,14 +168,15 @@ body {
 
 /* Tips section */
 .tips {
-    background: white;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
+    color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     margin-top: 2rem;
 }
 
 .tips h2 {
-    color: #4740d7;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
@@ -210,12 +213,12 @@ body {
 }
 
 .nutrition-card h2 {
-    color: #4740d7;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
 .nutrition-card h3 {
-    color: #000000;
+    color: #ffffff;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
 }
@@ -247,7 +250,8 @@ body {
 }
 
 .info-card {
-    background: #ffffff;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
+    color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
@@ -255,19 +259,20 @@ body {
 }
 
 .info-card h2 {
-    color: #4740d7;
+    color: #fefefe;
     margin-bottom: 1rem;
 }
 
 .contact-form {
-    background: #ffffff;
+    background:linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
+    color: rgb(255, 255, 255);
     padding: 2rem;
     border-radius: 10px;
     margin-top: 3rem;
 }
 
 .contact-form h2 {
-    color: #4740d7;
+    color: #ffffff;
     margin-bottom: 1.5rem;
 }
 
@@ -283,7 +288,7 @@ body {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #000000;
+    color: #ffffff;
 }
 
 .form-group input,
@@ -291,7 +296,7 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 2px solid #000000;
+    border: 2px solid #00bbff;
     border-radius: 5px;
     font-size: 1rem;
     font-family: inherit;
@@ -301,7 +306,7 @@ body {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: #667eea
 }
 
 .submit-button {
@@ -323,7 +328,7 @@ body {
 
 /* Footer */
 footer {
-    background: #333;
+    background: linear-gradient(135deg, #000000 1%, #4740d7 100%);
     color: white;
     text-align: center;
     padding: 2rem;
@@ -354,13 +359,13 @@ footer {
 }
 
 .trainer-section h2 {
-    color: #4740d7;
+    color: #ffffff;
     margin-bottom: 2rem;
     font-size: 2rem;
 }
 
 .trainer-card {
-    background: white;
+    background: linear-gradient(135deg, rgb(2, 2, 2) 0%, #4740d7 100%);
     padding: 3rem 2rem;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -387,20 +392,20 @@ footer {
 }
 
 .trainer-card h3 {
-    color: #333;
+    color: #22a9cf;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
 
 .trainer-title {
-    color: #000000;
+    color: #ffffff;
     font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 1rem;
 }
 
 .trainer-bio {
-    color: #000000;
+    color: #ffffff;
     line-height: 1.6;
 }
 .trainer-img {
@@ -423,7 +428,7 @@ footer {
     .snowflake {
         position: absolute;
         top: -10px;
-        color: #fff;
+        color: #aeaeae;
         font-size: 1em;
         user-select: none;
         pointer-events: none;
@@ -465,3 +470,32 @@ footer {
     .snowflake:nth-child(even) {
         animation: fall linear infinite, sway 4s ease-in-out infinite reverse;
     }
+.santa-glow-wink {
+    position: fixed;
+    bottom: -10px;
+    right: 10px;
+    z-index: 9999;
+    animation: santaBlink 5s infinite;
+}
+
+.santa-glow-wink img {
+    width: 180px;
+    height: auto;
+    animation: santaGlow 8s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px #ff0000);
+}
+
+/* Vilkunta (lämpimän jouluvalon tyyli) */
+@keyframes santaBlink {
+    0% { opacity: 1; }
+    45% { opacity: 0.55; }
+    60% { opacity: 1; }
+    100% { opacity: 0.55; }
+}
+
+/* Punainen hohto hehkuu kevyesti */
+@keyframes santaGlow {
+    0% { filter: drop-shadow(0 0 6px #ff0000); }
+    50% { filter: drop-shadow(0 0 40px#ffffff); }
+    100% { filter: drop-shadow(0 0 6px #ff0000); }
+}
