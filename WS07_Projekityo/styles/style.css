@@ -125,15 +125,16 @@ body {
 /* CTA section */
 .cta-section {
     text-align: center;
-    background: rgb(255, 255, 255);
-    padding: 3rem;
-    border-radius: 10px;
-    margin-top: 3rem;
+    background: linear-gradient(135deg, #4740d7 0%, #000000 100%);
+    color: rgb(255, 255, 255);
+    padding:4rem;
+    border-radius: 150px;
+    margin-top: 0rem;
 }
 
 .cta-section h2 {
-    color: #000000
-    margin-bottom 1rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
 }
 
 /* Workout cards */
@@ -376,7 +377,7 @@ footer {
 
 .trainer-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .trainer-image {
@@ -392,7 +393,7 @@ footer {
 }
 
 .trainer-card h3 {
-    color: #22a9cf;
+    color: #56f8f0;
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
 }
@@ -499,3 +500,138 @@ footer {
     50% { filter: drop-shadow(0 0 40px#ffffff); }
     100% { filter: drop-shadow(0 0 6px #ff0000); }
 }
+.pricing-section {
+        padding: 80px 20px;
+        background: linear-gradient(180deg, #000000 0%, #4740d7 100%);
+    }
+
+    .pricing-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .pricing-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #ffffff;
+    }
+
+    .pricing-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 3rem;
+    }
+
+    .pricing-boxes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 2rem;
+    }
+
+    .price-box {
+        background: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .price-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .price-box.featured {
+        border: 3px solid #4740d7;
+        transform: scale(1.05);
+    }
+
+    .price-box.featured:hover {
+        transform: scale(1.05) translateY(-10px);
+    }
+
+    .featured-badge {
+        position: absolute;
+        top: 20px;
+        right: -35px;
+        background: linear-gradient(135deg, #000000 0%, #4740d7 100%);
+        color: rgb(255, 255, 255);
+        padding: 5px 40px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transform: rotate(45deg);
+        box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+    }
+
+    .price-box h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #000000;
+    }
+
+    .price {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #667eea;
+        margin: 1.5rem 0;
+    }
+
+    .price-period {
+        font-size: 1rem;
+        color: #666;
+        font-weight: 400;
+    }
+
+    .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+        text-align: left;
+    }
+
+    .features-list li {
+        padding: 12px 0;
+        color: #666;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .features-list li::before {
+        content: '✓';
+        color: #667eea;
+        font-weight: 700;
+        font-size: 1.3rem;
+    }
+    .price-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(225, 0, 255, 0.4);
+    }
+
+    .savings-badge {
+        display: inline-block;
+        background: #ffd700;
+        color: #1a1a1a;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .pricing-boxes {
+            grid-template-columns: 1fr;
+        }
+        
+        .price-box.featured {
+            transform: scale(1);
+        }
+    }

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TESTOGym - Yhteystiedot</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.css" />
 
     <style>
-    .toggle-btn {
+      .toggle-btn {
         position: fixed;
         top: 20px;
         right: 20px;
@@ -23,185 +23,191 @@
         gap: 8px;
         transition: all 0.3s ease;
         z-index: 1000;
-    }
+      }
 
-    .toggle-btn:hover {
+      .toggle-btn:hover {
         background: #f3f4f6;
         transform: translateY(-2px);
-    }
+      }
 
-    body.colorblind-mode {
+      body.colorblind-mode {
         filter: grayscale(100%) contrast(120%);
-    }
+      }
 
-    body.colorblind-mode .toggle-btn {
+      body.colorblind-mode .toggle-btn {
         background: #1f2937;
         color: #fcd34d;
         filter: none;
-    }
-</style>
-<nav class="navbar">
-        <div class="nav-container">
-<h1 class="logo">TESTOGym</h1>
-</head>
-<body>
-    
-            
-            <ul class="nav-links">
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="treenit.html">Treenit</a></li>
-                <li><a href="ruokavalio.html">Ruokavalio</a></li>
-                <li><a href="yhteystiedot.html" class="active">Yhteystiedot</a></li>
-            </ul>
-        </div>
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="logo">TESTOGym</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="treenit.html">Treenit</a></li>
+          <li><a href="ruokavalio.html">Ruokavalio</a></li>
+          <li><a href="yhteystiedot.html" class="active">Yhteystiedot</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main class="container">
-        <h1>Ota yhteyttä</h1>
-        
-        <section class="contact-info">
-            <div class="info-card">
-                <h2>📍 Osoite</h2>
-                <p>Orvokkikuja 4<br>01300 Vantaa</p>
-            </div>
-            
-            <div class="info-card">
-                <h2>📞 Puhelin</h2>
-                <p>+358 40 123 4567</p>
-            </div>
-            
-            <div class="info-card">
-                <h2>📧 Sähköposti</h2>
-                <p>info@testogym.fi</p>
-            </div>
+      <section class="contact-info">
+        <div class="info-card">
+          <h2>📍 Osoite</h2>
+          <p>Orvokkikuja 4<br />01300 Vantaa</p>
+        </div>
 
-            <button class="toggle-btn" onclick="toggleColorBlindMode()">
-    <span id="icon">👁️</span>
-    <span id="btnText">Color Blind -tila</span>
-</button>
+        <div class="info-card">
+          <h2>📞 Puhelin</h2>
+          <p>+358 40 123 4567</p>
+        </div>
 
-<script>
-    function toggleColorBlindMode() {
-        const body = document.body;
-        const icon = document.getElementById('icon');
-        const btnText = document.getElementById('btnText');
-        
-        body.classList.toggle('colorblind-mode');
-        
-        if (body.classList.contains('colorblind-mode')) {
-            icon.textContent = '👁️';
-            btnText.textContent = 'Normaali tila';
-        } else {
-            icon.textContent = '🚫';
-            btnText.textContent = 'Color Blind -tila';
-        }
-    }
-</script>
-            
-            <div class="info-card">
-                <h2>⏰ Aukioloajat</h2>
-                <p>24/7 - Auki ympäri vuorokauden</p>
-            </div>
-        </section>
+        <div class="info-card">
+          <h2>📧 Sähköposti</h2>
+          <p>info@testogym.fi</p>
+        </div>
 
-        <section class="contact-form">
-            <h2>Liittymislomake</h2>
-            <div class="form-container">
-                <div class="form-group">
-                    <label for="name">Nimi:</label>
-                    <input type="text" id="name" placeholder="Etunimi Sukunimi">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Sähköposti:</label>
-                    <input type="email" id="email" placeholder="esimerkki@email.fi">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Puhelinnumero:</label>
-                    <input type="tel" id="phone" placeholder="+358 40 123 4567">
-                </div>
-                
-                <div class="form-group">
-                    <label for="membership">Jäsentyyppi:</label>
-                    <select id="membership">
-                        <option>Kuukausijäsenyys - 49€/kk</option>
-                        <option>Vuosijäsenyys - 450€/v</option>
-                        <option>Opiskelija - 35€/kk</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Viesti (valinnainen):</label>
-                    <textarea id="message" rows="4" placeholder="Kerro lisää tavoitteistasi..."></textarea>
-                </div>
-                
-                <button class="submit-button">Lähetä liittymispyyntö</button>
-            </div>
-        </section>
+        <button class="toggle-btn" onclick="toggleColorBlindMode()">
+          <span id="icon">👁️</span>
+          <span id="btnText">Color Blind -tila</span>
+        </button>
+
+        <script>
+          function toggleColorBlindMode() {
+            const body = document.body;
+            const icon = document.getElementById("icon");
+            const btnText = document.getElementById("btnText");
+
+            body.classList.toggle("colorblind-mode");
+
+            if (body.classList.contains("colorblind-mode")) {
+              icon.textContent = "👁️";
+              btnText.textContent = "Normaali tila";
+            } else {
+              icon.textContent = "🚫";
+              btnText.textContent = "Color Blind -tila";
+            }
+          }
+        </script>
+
+        <div class="info-card">
+          <h2>⏰ Aukioloajat</h2>
+          <p>24/7 - Auki ympäri vuorokauden</p>
+        </div>
+      </section>
+
+      <section class="contact-form">
+        <h2>Liittymislomake</h2>
+        <div class="form-container">
+          <div class="form-group">
+            <label for="name">Nimi:</label>
+            <input type="text" id="name" placeholder="Etunimi Sukunimi" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Sähköposti:</label>
+            <input type="email" id="email" placeholder="esimerkki@email.fi" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Puhelinnumero:</label>
+            <input type="tel" id="phone" placeholder="+358 40 123 4567" />
+          </div>
+
+          <div class="form-group">
+            <label for="membership">Jäsentyyppi:</label>
+            <select id="membership">
+              <option>Kuukausijäsenyys - 49€/kk</option>
+              <option>Vuosijäsenyys - 450€/v</option>
+              <option>Opiskelija - 35€/kk</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Viesti (valinnainen):</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Kerro lisää tavoitteistasi..."
+            ></textarea>
+          </div>
+
+          <button class="submit-button">Lähetä liittymispyyntö</button>
+        </div>
+      </section>
     </main>
 
     <div class="santa-glow-wink">
-    <img src="./images/christmas-1884799_1280.png" alt="Santa Claus" width="150" height="150">
-</div>
+      <img
+        src="./images/christmas-1884799_1280.png"
+        alt="Santa Claus"
+        width="150"
+        height="150"
+      />
+    </div>
 
+    <!-- HTML -->
+    <div class="snowflakes-container" id="snowContainer"></div>
 
-<!-- HTML -->
-<div class="snowflakes-container" id="snowContainer"></div>
+    <!-- JavaScript -->
+    <script>
+      function createSnowflake() {
+        const container = document.getElementById("snowContainer");
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
 
-<!-- JavaScript -->
-<script>
-    function createSnowflake() {
-        const container = document.getElementById('snowContainer');
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
         // Vaihtelevat lumihiutaleet
-        const snowflakeSymbols = ['❄', '❅', '❆'];
-        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
-        
+        const snowflakeSymbols = ["❄", "❅", "❆"];
+        snowflake.textContent =
+          snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+
         // Satunnainen sijainti
-        snowflake.style.left = Math.random() * 100 + '%';
-        
+        snowflake.style.left = Math.random() * 100 + "%";
+
         // Satunnainen koko
         const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
-        snowflake.style.fontSize = size + 'em';
-        
+        snowflake.style.fontSize = size + "em";
+
         // Satunnainen putoamisnopeus
         const duration = Math.random() * 10 + 10; // 10-20 sekuntia
-        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
-        
+        snowflake.style.animationDuration =
+          duration + "s, " + (Math.random() * 2 + 3) + "s";
+
         // Satunnainen viive
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        
+        snowflake.style.animationDelay = Math.random() * 5 + "s";
+
         // Satunnainen läpinäkyvyys
         snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
-        
+
         container.appendChild(snowflake);
-        
+
         // Poista lumihiutale kun se on pudonnut
         setTimeout(() => {
-            snowflake.remove();
+          snowflake.remove();
         }, (duration + 5) * 1000);
-    }
+      }
 
-    // Luo lumihiutaleita säännöllisesti
-    function startSnowfall() {
+      // Luo lumihiutaleita säännöllisesti
+      function startSnowfall() {
         // Luo alkuhiutaleet
         for (let i = 0; i < 50; i++) {
-            setTimeout(() => createSnowflake(), i * 200);
+          setTimeout(() => createSnowflake(), i * 200);
         }
-        
+
         // Jatka luomista
         setInterval(createSnowflake, 400);
-    }
+      }
 
-    // Käynnistä lumisade kun sivu on ladattu
-    window.addEventListener('DOMContentLoaded', startSnowfall);
-</script>
+      // Käynnistä lumisade kun sivu on ladattu
+      window.addEventListener("DOMContentLoaded", startSnowfall);
+    </script>
 
     <footer>
-        <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
+      <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
     </footer>
-</body>
+  </body>
 </html>

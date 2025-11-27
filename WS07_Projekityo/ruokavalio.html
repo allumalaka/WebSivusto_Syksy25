@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TESTOGym - Ruokavalio</title>
     <link rel="stylesheet" href="styles/style.css">
     <style>
-    .toggle-btn {
+      .toggle-btn {
         position: fixed;
         top: 20px;
         right: 20px;
@@ -22,170 +22,180 @@
         gap: 8px;
         transition: all 0.3s ease;
         z-index: 1000;
-    }
+      }
 
-    .toggle-btn:hover {
+      .toggle-btn:hover {
         background: #f3f4f6;
         transform: translateY(-2px);
-    }
+      }
 
-    body.colorblind-mode {
+      body.colorblind-mode {
         filter: grayscale(100%) contrast(120%);
-    }
+      }
 
-    body.colorblind-mode .toggle-btn {
+      body.colorblind-mode .toggle-btn {
         background: #1f2937;
         color: #fcd34d;
         filter: none;
-    }
-</style>
-</head>
-<body>
-           <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">TESTOGym</h1>
-    <ul class="nav-links">
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="treenit.html">Treenit</a></li>
-                <li><a href="ruokavalio.html" class="active">Ruokavalio</a></li>
-                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
-            </ul>
-        </div>
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h1 class="logo">TESTOGym</h1>
+        <ul class="nav-links">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="treenit.html">Treenit</a></li>
+          <li><a href="ruokavalio.html" class="active">Ruokavalio</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main class="container">
-        <h1>Ravinto-oppaat</h1>
-        
-        <section class="nutrition-intro">
-            <p>Hyvä ravinto on 70% tuloksista! Tässä perusohjeita eri tavoitteisiin.</p>
-        </section>
+      <h1>Ravinto-oppaat</h1>
 
-        <button class="toggle-btn" onclick="toggleColorBlindMode()">
-    <span id="icon">👁️</span>
-    <span id="btnText">Color Blind -tila</span>
-</button>
+      <section class="nutrition-intro">
+        <p>
+          Hyvä ravinto on 70% tuloksista! Tässä perusohjeita eri tavoitteisiin.
+        </p>
+      </section>
 
-<script>
-    function toggleColorBlindMode() {
-        const body = document.body;
-        const icon = document.getElementById('icon');
-        const btnText = document.getElementById('btnText');
-        
-        body.classList.toggle('colorblind-mode');
-        
-        if (body.classList.contains('colorblind-mode')) {
-            icon.textContent = '👁️';
-            btnText.textContent = 'Normaali tila';
-        } else {
-            icon.textContent = '🚫';
-            btnText.textContent = 'Color Blind -tila';
+      <button class="toggle-btn" onclick="toggleColorBlindMode()">
+        <span id="icon">👁️</span>
+        <span id="btnText">Color Blind -tila</span>
+      </button>
+
+      <script>
+        function toggleColorBlindMode() {
+          const body = document.body;
+          const icon = document.getElementById("icon");
+          const btnText = document.getElementById("btnText");
+
+          body.classList.toggle("colorblind-mode");
+
+          if (body.classList.contains("colorblind-mode")) {
+            icon.textContent = "👁️";
+            btnText.textContent = "Normaali tila";
+          } else {
+            icon.textContent = "🚫";
+            btnText.textContent = "Color Blind -tila";
+          }
         }
-    }
-</script>
+      </script>
 
-        <section class="nutrition-section">
-            <div class="nutrition-card">
-                <h2>🍗 Lihasmassan kasvatus</h2>
-                <p><strong>Kalorit:</strong> Yli ylläpidon (300-500 kcal yli kulutuksen)</p>
-                <h3>Makrojakauma:</h3>
-                <ul>
-                    <li>Proteiini: 2g / kg painoa</li>
-                    <li>Hiilihydraatit: 4-6g / kg</li>
-                    <li>Rasvat: 0.8-1g / kg</li>
-                </ul>
-                <h3>Hyviä ruokia:</h3>
-                <p>Kana, riisi, kaura, pähkinät, avokado, banaani</p>
-            </div>
+      <section class="nutrition-section">
+        <div class="nutrition-card">
+          <h2>🍗 Lihasmassan kasvatus</h2>
+          <p>
+            <strong>Kalorit:</strong> Yli ylläpidon (300-500 kcal yli
+            kulutuksen)
+          </p>
+          <h3>Makrojakauma:</h3>
+          <ul>
+            <li>Proteiini: 2g / kg painoa</li>
+            <li>Hiilihydraatit: 4-6g / kg</li>
+            <li>Rasvat: 0.8-1g / kg</li>
+          </ul>
+          <h3>Hyviä ruokia:</h3>
+          <p>Kana, riisi, kaura, pähkinät, avokado, banaani</p>
+        </div>
 
-            <div class="nutrition-card">
-                <h2>🔥 Rasvaa pois</h2>
-                <p><strong>Kalorit:</strong> Alle ylläpidon (300-500 kcal alle kulutuksen)</p>
-                <h3>Makrojakauma:</h3>
-                <ul>
-                    <li>Proteiini: 2-2.5g / kg painoa</li>
-                    <li>Hiilihydraatit: 2-3g / kg</li>
-                    <li>Rasvat: 0.7-1g / kg</li>
-                </ul>
-                <h3>Hyviä ruokia:</h3>
-                <p>Kana, kalkkuna, vihreät kasvikset, munat, kala</p>
-            </div>
+        <div class="nutrition-card">
+          <h2>🔥 Rasvaa pois</h2>
+          <p>
+            <strong>Kalorit:</strong> Alle ylläpidon (300-500 kcal alle
+            kulutuksen)
+          </p>
+          <h3>Makrojakauma:</h3>
+          <ul>
+            <li>Proteiini: 2-2.5g / kg painoa</li>
+            <li>Hiilihydraatit: 2-3g / kg</li>
+            <li>Rasvat: 0.7-1g / kg</li>
+          </ul>
+          <h3>Hyviä ruokia:</h3>
+          <p>Kana, kalkkuna, vihreät kasvikset, munat, kala</p>
+        </div>
 
-            <div class="nutrition-card">
-                <h2>⚖️ Ylläpito</h2>
-                <p><strong>Kalorit:</strong> Ylläpitotaso</p>
-                <h3>Makrojakauma:</h3>
-                <ul>
-                    <li>Proteiini: 1.6-2g / kg painoa</li>
-                    <li>Hiilihydraatit: 3-4g / kg</li>
-                    <li>Rasvat: 0.8-1g / kg</li>
-                </ul>
-                <h3>Tasapainoinen ruokavalio</h3>
-                <p>Monipuolista syömistä kaikkien ravintoaineiden saamiseksi</p>
-            </div>
-        </section>
+        <div class="nutrition-card">
+          <h2>⚖️ Ylläpito</h2>
+          <p><strong>Kalorit:</strong> Ylläpitotaso</p>
+          <h3>Makrojakauma:</h3>
+          <ul>
+            <li>Proteiini: 1.6-2g / kg painoa</li>
+            <li>Hiilihydraatit: 3-4g / kg</li>
+            <li>Rasvat: 0.8-1g / kg</li>
+          </ul>
+          <h3>Tasapainoinen ruokavalio</h3>
+          <p>Monipuolista syömistä kaikkien ravintoaineiden saamiseksi</p>
+        </div>
+      </section>
 
-        <section class="hydration">
-            <h2>💧 Nesteytysvinkki</h2>
-            <p>Juo vähintään 2-3 litraa vettä päivässä, enemmän treenipäivinä!</p>
-        </section>
+      <section class="hydration">
+        <h2>💧 Nesteytysvinkki</h2>
+        <p>Juo vähintään 2-3 litraa vettä päivässä, enemmän treenipäivinä!</p>
+      </section>
     </main>
 
     <!-- HTML -->
-<div class="snowflakes-container" id="snowContainer"></div>
+    <div class="snowflakes-container" id="snowContainer"></div>
 
-<!-- JavaScript -->
-<script>
-    function createSnowflake() {
-        const container = document.getElementById('snowContainer');
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
+    <!-- JavaScript -->
+    <script>
+      function createSnowflake() {
+        const container = document.getElementById("snowContainer");
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+
         // Vaihtelevat lumihiutaleet
-        const snowflakeSymbols = ['❄', '❅', '❆'];
-        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
-        
+        const snowflakeSymbols = ["❄", "❅", "❆"];
+        snowflake.textContent =
+          snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+
         // Satunnainen sijainti
-        snowflake.style.left = Math.random() * 100 + '%';
-        
+        snowflake.style.left = Math.random() * 100 + "%";
+
         // Satunnainen koko
         const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
-        snowflake.style.fontSize = size + 'em';
-        
+        snowflake.style.fontSize = size + "em";
+
         // Satunnainen putoamisnopeus
         const duration = Math.random() * 10 + 10; // 10-20 sekuntia
-        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
-        
+        snowflake.style.animationDuration =
+          duration + "s, " + (Math.random() * 2 + 3) + "s";
+
         // Satunnainen viive
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        
+        snowflake.style.animationDelay = Math.random() * 5 + "s";
+
         // Satunnainen läpinäkyvyys
         snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
-        
+
         container.appendChild(snowflake);
-        
+
         // Poista lumihiutale kun se on pudonnut
         setTimeout(() => {
-            snowflake.remove();
+          snowflake.remove();
         }, (duration + 5) * 1000);
-    }
+      }
 
-    // Luo lumihiutaleita säännöllisesti
-    function startSnowfall() {
+      // Luo lumihiutaleita säännöllisesti
+      function startSnowfall() {
         // Luo alkuhiutaleet
         for (let i = 0; i < 50; i++) {
-            setTimeout(() => createSnowflake(), i * 200);
+          setTimeout(() => createSnowflake(), i * 200);
         }
-        
+
         // Jatka luomista
         setInterval(createSnowflake, 400);
-    }
+      }
 
-    // Käynnistä lumisade kun sivu on ladattu
-    window.addEventListener('DOMContentLoaded', startSnowfall);
-</script>
+      // Käynnistä lumisade kun sivu on ladattu
+      window.addEventListener("DOMContentLoaded", startSnowfall);
+    </script>
 
     <footer>
-        <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
+      <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
     </footer>
-</body>
+  </body>
 </html>

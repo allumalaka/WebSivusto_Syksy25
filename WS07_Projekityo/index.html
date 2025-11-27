@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TESTOGym - Etusivu</title>
     <link rel="stylesheet" href="styles/style.css">
     <style>
-    .toggle-btn {
+      .toggle-btn {
         position: fixed;
         top: 20px;
         right: 20px;
@@ -22,30 +22,30 @@
         gap: 8px;
         transition: all 0.3s ease;
         z-index: 1000;
-    }
+      }
 
-    .toggle-btn:hover {
+      .toggle-btn:hover {
         background: #ffffff;
         transform: translateY(-2px);
-    }
+      }
 
-    body.colorblind-mode {
+      body.colorblind-mode {
         filter: grayscale(100%) contrast(120%);
-    }
+      }
 
-    body.colorblind-mode .toggle-btn {
+      body.colorblind-mode .toggle-btn {
         background: #1f2937;
         color: #fcd34d;
         filter: none;
-    }
-    .chatbot-container {
+      }
+      .chatbot-container {
         position: fixed;
         bottom: 20px;
         right: 20px;
         z-index: 1000;
-    }
+      }
 
-    .chat-button {
+      .chat-button {
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -58,13 +58,13 @@
         justify-content: center;
         font-size: 28px;
         transition: transform 0.3s ease;
-    }
+      }
 
-    .chat-button:hover {
+      .chat-button:hover {
         transform: scale(1.1);
-    }
+      }
 
-    .chat-window {
+      .chat-window {
         position: absolute;
         bottom: 80px;
         right: 0;
@@ -76,13 +76,13 @@
         display: none;
         flex-direction: column;
         overflow: hidden;
-    }
+      }
 
-    .chat-window.active {
+      .chat-window.active {
         display: flex;
-    }
+      }
 
-    .chat-header {
+      .chat-header {
         background: linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
         color: white;
         padding: 20px;
@@ -90,9 +90,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+      }
 
-    .chat-close {
+      .chat-close {
         background: none;
         border: none;
         color: white;
@@ -101,57 +101,57 @@
         padding: 0;
         width: 30px;
         height: 30px;
-    }
+      }
 
-    .chat-messages {
+      .chat-messages {
         flex: 1;
         padding: 20px;
         overflow-y: auto;
         background: #f9fafb;
-    }
+      }
 
-    .message {
+      .message {
         margin-bottom: 15px;
         display: flex;
         gap: 10px;
-    }
+      }
 
-    .message.bot {
+      .message.bot {
         justify-content: flex-start;
-    }
+      }
 
-    .message.user {
+      .message.user {
         justify-content: flex-end;
-    }
+      }
 
-    .message-bubble {
+      .message-bubble {
         max-width: 70%;
         padding: 12px 16px;
         border-radius: 18px;
         line-height: 1.4;
         font-size: 14px;
-    }
+      }
 
-    .message.bot .message-bubble {
+      .message.bot .message-bubble {
         background: white;
         color: #1f2937;
         border-bottom-left-radius: 4px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
+      }
 
-    .message.user .message-bubble {
+      .message.user .message-bubble {
         background: linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
         color: white;
         border-bottom-right-radius: 4px;
-    }
+      }
 
-    .chat-options {
+      .chat-options {
         padding: 15px;
         background: white;
         border-top: 1px solid #e5e7eb;
-    }
+      }
 
-    .option-button {
+      .option-button {
         width: 100%;
         padding: 12px;
         margin-bottom: 8px;
@@ -162,18 +162,18 @@
         font-size: 14px;
         transition: all 0.2s ease;
         text-align: left;
-    }
+      }
 
-    .option-button:hover {
+      .option-button:hover {
         background: #e5e7eb;
         border-color: #4740d7;
-    }
+      }
 
-    .option-button:last-child {
+      .option-button:last-child {
         margin-bottom: 0;
-    }
+      }
 
-    .typing-indicator {
+      .typing-indicator {
         display: none;
         padding: 12px 16px;
         background: white;
@@ -181,13 +181,13 @@
         border-bottom-left-radius: 4px;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         width: fit-content;
-    }
+      }
 
-    .typing-indicator.active {
+      .typing-indicator.active {
         display: block;
-    }
+      }
 
-    .typing-indicator span {
+      .typing-indicator span {
         display: inline-block;
         width: 8px;
         height: 8px;
@@ -195,27 +195,29 @@
         background: #9ca3af;
         margin: 0 2px;
         animation: typing 1.4s infinite;
-    }
+      }
 
-    .typing-indicator span:nth-child(2) {
+      .typing-indicator span:nth-child(2) {
         animation-delay: 0.2s;
-    }
+      }
 
-    .typing-indicator span:nth-child(3) {
+      .typing-indicator span:nth-child(3) {
         animation-delay: 0.4s;
-    }
+      }
 
-    @keyframes typing {
-        0%, 60%, 100% {
-            transform: translateY(0);
+      @keyframes typing {
+        0%,
+        60%,
+        100% {
+          transform: translateY(0);
         }
         30% {
-            transform: translateY(-10px);
+          transform: translateY(-10px);
         }
-    }
-</style>
+      }
+    </style>
     <style>
-    .christmas-lights {
+      .christmas-lights {
         position: fixed;
         left: 0;
         top: 0;
@@ -223,28 +225,28 @@
         width: 60px;
         z-index: 999;
         pointer-events: none;
-    }
+      }
 
-    .lights-wire {
+      .lights-wire {
         position: absolute;
         left: 20px;
         top: 0;
         width: 2px;
         height: 100%;
         background: #2d5016;
-    }
+      }
 
-    .light {
+      .light {
         position: absolute;
         left: 10px;
         width: 20px;
         height: 30px;
         border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
         animation: twinkle 2s infinite;
-    }
+      }
 
-    .light::before {
-        content: '';
+      .light::before {
+        content: "";
         position: absolute;
         top: -5px;
         left: 50%;
@@ -253,10 +255,10 @@
         height: 8px;
         background: #444;
         border-radius: 2px;
-    }
+      }
 
-    .light::after {
-        content: '';
+      .light::after {
+        content: "";
         position: absolute;
         top: 5px;
         left: 3px;
@@ -264,291 +266,392 @@
         height: 8px;
         background: rgba(255, 255, 255, 0.3);
         border-radius: 50%;
-    }
+      }
 
-    .light.red {
+      .light.red {
         background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000);
         box-shadow: 0 0 20px #ff0000;
-    }
+      }
 
-    .light.green {
+      .light.green {
         background: radial-gradient(circle at 30% 30%, #44ff44, #00cc00);
         box-shadow: 0 0 20px #00ff00;
-    }
+      }
 
-    .light.blue {
+      .light.blue {
         background: radial-gradient(circle at 30% 30%, #4444ff, #0000cc);
         box-shadow: 0 0 20px #0000ff;
-    }
+      }
 
-    .light.yellow {
+      .light.yellow {
         background: radial-gradient(circle at 30% 30%, #ffff44, #cccc00);
         box-shadow: 0 0 20px #ffff00;
-    }
+      }
 
-    .light.purple {
+      .light.purple {
         background: radial-gradient(circle at 30% 30%, #ff44ff, #cc00cc);
         box-shadow: 0 0 20px #ff00ff;
-    }
+      }
 
-    .light.orange {
+      .light.orange {
         background: radial-gradient(circle at 30% 30%, #ffaa44, #ff6600);
         box-shadow: 0 0 20px #ff8800;
-    }
+      }
 
-    @keyframes twinkle {
-        0%, 100% {
-            opacity: 1;
-            filter: brightness(1);
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 1;
+          filter: brightness(1);
         }
         50% {
-            opacity: 0.4;
-            filter: brightness(0.6);
+          opacity: 0.4;
+          filter: brightness(0.6);
         }
-    }
+      }
 
-    .light:nth-child(2) { animation-delay: 0s; }
-    .light:nth-child(3) { animation-delay: 0.3s; }
-    .light:nth-child(4) { animation-delay: 0.6s; }
-    .light:nth-child(5) { animation-delay: 0.9s; }
-    .light:nth-child(6) { animation-delay: 1.2s; }
-    .light:nth-child(7) { animation-delay: 1.5s; }
-    .light:nth-child(8) { animation-delay: 0.2s; }
-    .light:nth-child(9) { animation-delay: 0.5s; }
-    .light:nth-child(10) { animation-delay: 0.8s; }
-    .light:nth-child(11) { animation-delay: 1.1s; }
-    .light:nth-child(12) { animation-delay: 1.4s; }
-    .light:nth-child(13) { animation-delay: 0.4s; }
-    .light:nth-child(14) { animation-delay: 0.7s; }
-    .light:nth-child(15) { animation-delay: 1.0s; }
-</style>
-</head>
-<body>
+      .light:nth-child(2) {
+        animation-delay: 0s;
+      }
+      .light:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .light:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      .light:nth-child(5) {
+        animation-delay: 0.9s;
+      }
+      .light:nth-child(6) {
+        animation-delay: 1.2s;
+      }
+      .light:nth-child(7) {
+        animation-delay: 1.5s;
+      }
+      .light:nth-child(8) {
+        animation-delay: 0.2s;
+      }
+      .light:nth-child(9) {
+        animation-delay: 0.5s;
+      }
+      .light:nth-child(10) {
+        animation-delay: 0.8s;
+      }
+      .light:nth-child(11) {
+        animation-delay: 1.1s;
+      }
+      .light:nth-child(12) {
+        animation-delay: 1.4s;
+      }
+      .light:nth-child(13) {
+        animation-delay: 0.4s;
+      }
+      .light:nth-child(14) {
+        animation-delay: 0.7s;
+      }
+      .light:nth-child(15) {
+        animation-delay: 1s;
+      }
+    </style>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">TESTOGym</h1>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Etusivu</a></li>
-                <li><a href="treenit.html">Treenit</a></li>
-                <li><a href="ruokavalio.html">Ruokavalio</a></li>
-                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
-            </ul>
-        </div>
+      <div class="nav-container">
+        <h1 class="logo">TESTOGym</h1>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Etusivu</a></li>
+          <li><a href="treenit.html">Treenit</a></li>
+          <li><a href="ruokavalio.html">Ruokavalio</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <h1>Tervetuloa TESTOGymiin</h1>
-            <p>Saavuta tavoitteesi ammattilaisohjauksella</p>
-            <a href="yhteystiedot.html" class="cta-button">Aloita tänään</a>
-        </div>
+      <div class="hero-content">
+        <h1>Tervetuloa TESTOGymiin</h1>
+        <p>Saavuta tavoitteesi ammattilaisohjauksella</p>
+        <a href="yhteystiedot.html" class="cta-button">Aloita tänään</a>
+      </div>
     </header>
 
     <main class="container">
-        <section class="intro">
-            <h2>Miksi valita TESTOGym?</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <h3>🏋️ Modernit laitteet</h3>
-                    <p>Uusimmat treenilaitteet ja vapaat painot kaikkiin tarpeisiin</p>
-                </div>
-                <div class="feature-card">
-                    <h3>👥 Henkilökohtainen ohjaus</h3>
-                    <p>Ammattitaitoiset PT:t auttavat tavoitteissasi</p>
-                </div>
-                <div class="feature-card">
-                    <h3>⏰ Aukioloajat</h3>
-                    <p>Auki 24/7 - treenaa mihin aikaan tahansa!</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Aloita matkasi kohti parempaa kuntoa</h2>
-            <p>Ensimmäinen viikko ilmaiseksi uusille jäsenille!</p>
-            <a href="yhteystiedot.html" class="cta-button">Liity jäseneksi</a>
-        </section>
-
-        <button class="toggle-btn" onclick="toggleColorBlindMode()">
-    <span id="icon">👁️</span>
-    <span id="btnText">Color Blind -tila</span>
-</button>
-
-<script>
-    function toggleColorBlindMode() {
-        const body = document.body;
-        const icon = document.getElementById('icon');
-        const btnText = document.getElementById('btnText');
-        
-        body.classList.toggle('colorblind-mode');
-        
-        if (body.classList.contains('colorblind-mode')) {
-            icon.textContent = '👁️';
-            btnText.textContent = 'Normaali tila';
-        } else {
-            icon.textContent = '🚫';
-            btnText.textContent = 'Color Blind -tila';
-        }
-    }
-</script>
-
-<div class="chatbot-container">
-    <button class="chat-button" onclick="toggleChat()">💬</button>
-    
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <span>Chat-tuki</span>
-            <button class="chat-close" onclick="toggleChat()">×</button>
+      <section class="intro">
+        <h2>Miksi valita TESTOGym?</h2>
+        <div class="features">
+          <div class="feature-card">
+            <h3>🏋️ Modernit laitteet</h3>
+            <p>Uusimmat treenilaitteet ja vapaat painot kaikkiin tarpeisiin</p>
+          </div>
+          <div class="feature-card">
+            <h3>👥 Henkilökohtainen ohjaus</h3>
+            <p>Ammattitaitoiset PT:t auttavat tavoitteissasi</p>
+          </div>
+          <div class="feature-card">
+            <h3>⏰ Aukioloajat</h3>
+            <p>Auki 24/7 - treenaa mihin aikaan tahansa!</p>
+          </div>
         </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="message-bubble">
-                    Hei! 👋 Miten voin auttaa sinua tänään?
-                </div>
+
+<section class="pricing-section">
+    <div class="pricing-container">
+        <h2 class="pricing-title">Valitse Sinulle Sopiva Jäsenyys</h2>
+
+        <div class="pricing-boxes">
+            <!-- Kuukausijäsenyys -->
+            <div class="price-box">
+                <h3>Kuukausijäsenyys</h3>
+                <div class="price">49€<span class="price-period">/kk</span></div>
+                <ul class="features-list">
+                    <li>Rajaton salinkäyttö</li>
+                    <li>Kaikki ryhmäliikuntatunnit</li>
+                    <li>Pukuhuoneet ja suihkut</li>
+                    <li>Ilmainen aloituskerta PT:n kanssa</li>
+                    <li>Joustava, ei sitoutumisaikaa</li>
+                </ul>
             </div>
-            <div class="typing-indicator" id="typingIndicator">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <!-- Vuosijäsenyys (Featured) -->
+            <div class="price-box featured">
+                <div class="featured-badge">SUOSITUIN</div>
+                <h3>Vuosijäsenyys</h3>
+                <div class="price">450€<span class="price-period">/vuosi</span></div>
+                <div class="savings-badge">Säästä 138€!</div>
+                <ul class="features-list">
+                    <li>Rajaton salinkäyttö</li>
+                    <li>Kaikki ryhmäliikuntatunnit</li>
+                    <li>Pukuhuoneet ja suihkut</li>
+                    <li>3 Personal Training -kertaa</li>
+                    <li>Ilmainen kehonkoostumusmittaus</li>
+                    <li>VIP-asiakasedut</li>
+                </ul>
             </div>
-        </div>
-        
-        <div class="chat-options" id="chatOptions">
-            <button class="option-button" onclick="selectOption('aukioloajat')">⏰ Aukioloajat</button>
-            <button class="option-button" onclick="selectOption('yhteystiedot')">📞 Yhteystiedot</button>
-            <button class="option-button" onclick="selectOption('hinnat')">💰 Hinnat</button>
-            <button class="option-button" onclick="selectOption('palvelut')">🛠️ Palvelut</button>
+
+            <!-- Opiskelija -->
+            <div class="price-box">
+                <h3>Opiskelija</h3>
+                <div class="price">35€<span class="price-period">/kk</span></div>
+                <ul class="features-list">
+                    <li>Rajaton salinkäyttö</li>
+                    <li>Kaikki ryhmäliikuntatunnit</li>
+                    <li>Pukuhuoneet ja suihkut</li>
+                    <li>Ilmainen aloituskerta PT:n kanssa</li>
+                    <li>Opiskelijakortti vaaditaan</li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<script>
-    function toggleChat() {
-        const chatWindow = document.getElementById('chatWindow');
-        chatWindow.classList.toggle('active');
-    }
+      </section>
+      <section class="cta-section">
+        <h2>Aloita matkasi kohti parempaa kuntoa</h2>
+        <p>Ensimmäinen viikko ilmaiseksi uusille jäsenille!</p>
+        <a href="yhteystiedot.html" class="cta-button">Liity jäseneksi</a>
+      </section>
 
-    function addMessage(text, isBot = true) {
-        const messagesDiv = document.getElementById('chatMessages');
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${isBot ? 'bot' : 'user'}`;
-        
-        const bubble = document.createElement('div');
-        bubble.className = 'message-bubble';
-        bubble.textContent = text;
-        
-        messageDiv.appendChild(bubble);
-        messagesDiv.appendChild(messageDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
+      <button class="toggle-btn" onclick="toggleColorBlindMode()">
+        <span id="icon">👁️</span>
+        <span id="btnText">Color Blind -tila</span>
+      </button>
 
-    function showTyping() {
-        document.getElementById('typingIndicator').classList.add('active');
-        const messagesDiv = document.getElementById('chatMessages');
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
+      <script>
+        function toggleColorBlindMode() {
+          const body = document.body;
+          const icon = document.getElementById("icon");
+          const btnText = document.getElementById("btnText");
 
-    function hideTyping() {
-        document.getElementById('typingIndicator').classList.remove('active');
-    }
+          body.classList.toggle("colorblind-mode");
 
-    function selectOption(option) {
-        const responses = {
-            'aukioloajat': 'Olemme avoinna ma-su 24/7. Tervetuloa pumppaamaan rautaa!.',
-            'yhteystiedot': 'Voit tavoittaa meidät:\n📧 info@example.com\n📞 +358 40 123 4567',
-            'hinnat': 'Kuukausijäsenyys 49€, Vuosijäsenyys 450€. Opiskelija 35€/kk.',
-            'palvelut': 'Meillä on ammattitaitoinen PT, joka opastaa sinua ammattitaitoisesti omiin tavoitteisiisi!'
-        };
-        const optionTexts = {
-            'aukioloajat': 'Aukioloajat',
-            'yhteystiedot': 'Yhteystiedot',
-            'hinnat': 'Hinnat',
-            'palvelut': 'Palvelut'
-        };
-        
-        addMessage(optionTexts[option], false);
-        showTyping();
-        setTimeout(() => {
+          if (body.classList.contains("colorblind-mode")) {
+            icon.textContent = "👁️";
+            btnText.textContent = "Normaali tila";
+          } else {
+            icon.textContent = "🚫";
+            btnText.textContent = "Color Blind -tila";
+          }
+        }
+      </script>
+
+      <div class="chatbot-container">
+        <button class="chat-button" onclick="toggleChat()">💬</button>
+
+        <div class="chat-window" id="chatWindow">
+          <div class="chat-header">
+            <span>Chat-tuki</span>
+            <button class="chat-close" onclick="toggleChat()">×</button>
+          </div>
+
+          <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+              <div class="message-bubble">
+                Hei! 👋 Miten voin auttaa sinua tänään?
+              </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="chat-options" id="chatOptions">
+            <button class="option-button" onclick="selectOption('aukioloajat')">
+              ⏰ Aukioloajat
+            </button>
+            <button
+              class="option-button"
+              onclick="selectOption('yhteystiedot')"
+            >
+              📞 Yhteystiedot
+            </button>
+            <button class="option-button" onclick="selectOption('hinnat')">
+              💰 Hinnat
+            </button>
+            <button class="option-button" onclick="selectOption('palvelut')">
+              🛠️ Palvelut
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function toggleChat() {
+          const chatWindow = document.getElementById("chatWindow");
+          chatWindow.classList.toggle("active");
+        }
+
+        function addMessage(text, isBot = true) {
+          const messagesDiv = document.getElementById("chatMessages");
+          const messageDiv = document.createElement("div");
+          messageDiv.className = `message ${isBot ? "bot" : "user"}`;
+
+          const bubble = document.createElement("div");
+          bubble.className = "message-bubble";
+          bubble.textContent = text;
+
+          messageDiv.appendChild(bubble);
+          messagesDiv.appendChild(messageDiv);
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function showTyping() {
+          document.getElementById("typingIndicator").classList.add("active");
+          const messagesDiv = document.getElementById("chatMessages");
+          messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function hideTyping() {
+          document.getElementById("typingIndicator").classList.remove("active");
+        }
+
+        function selectOption(option) {
+          const responses = {
+            aukioloajat:
+              "Olemme avoinna ma-su 24/7. Tervetuloa pumppaamaan rautaa!.",
+            yhteystiedot:
+              "Voit tavoittaa meidät:\n📧 info@example.com\n📞 +358 40 123 4567",
+            hinnat:
+              "Kuukausijäsenyys 49€, Vuosijäsenyys 450€. Opiskelija 35€/kk.",
+            palvelut:
+              "Meillä on ammattitaitoinen PT, joka opastaa sinua ammattitaitoisesti omiin tavoitteisiisi!",
+          };
+          const optionTexts = {
+            aukioloajat: "Aukioloajat",
+            yhteystiedot: "Yhteystiedot",
+            hinnat: "Hinnat",
+            palvelut: "Palvelut",
+          };
+
+          addMessage(optionTexts[option], false);
+          showTyping();
+          setTimeout(() => {
             hideTyping();
             addMessage(responses[option], true);
-        }, 1000);
-    }
-</script>
+          }, 1000);
+        }
+      </script>
 
-         <section class="trainer-section">
-            <h2>Tapaa valmentajamme</h2>
-            <div class="trainer-card">
-                <img src="./images/marsu.jpg" alt="Aleksis Lazarides" class="trainer-img">
-                <h3>Aleksis Lazarides</h3>
-                <p class="trainer-title">Voimavalmentaja</p>
-                <p class="trainer-bio">5 vuotta kokemusta voima- ja kehonrakennuksesta</p>
-            </div>
-        </section>
+      <section class="trainer-section">
+        <h2>Tapaa valmentajamme</h2>
+        <div class="trainer-card">
+          <img
+            src="./images/marsu.jpg"
+            alt="Aleksis Lazarides"
+            class="trainer-img">
+          <h3>Aleksis Lazarides</h3>
+          <p class="trainer-title">Voimavalmentaja</p>
+          <p class="trainer-bio">
+            5 vuotta kokemusta voima- ja kehonrakennuksesta
+          </p>
+        </div>
+      </section>
     </main>
 
     <div class="christmas-lights">
-    <div class="lights-wire"></div>
-</div>
+      <div class="lights-wire"></div>
+    </div>
 
-<script>
-    function createChristmasLights() {
-        const container = document.querySelector('.christmas-lights');
-        const colors = ['red', 'green', 'blue', 'yellow', 'purple', 'orange'];
+    <script>
+      function createChristmasLights() {
+        const container = document.querySelector(".christmas-lights");
+        const colors = ["red", "green", "blue", "yellow", "purple", "orange"];
         const spacing = 80; // Valojen väli pikseleinä
         const screenHeight = window.innerHeight;
         const numLights = Math.floor(screenHeight / spacing);
 
         for (let i = 0; i < numLights; i++) {
-            const light = document.createElement('div');
-            light.className = `light ${colors[i % colors.length]}`;
-            light.style.top = `${(i * spacing) + 40}px`;
-            container.appendChild(light);
+          const light = document.createElement("div");
+          light.className = `light ${colors[i % colors.length]}`;
+          light.style.top = `${i * spacing + 40}px`;
+          container.appendChild(light);
         }
-    }
-    window.addEventListener('DOMContentLoaded', createChristmasLights);
-    window.addEventListener('resize', () => {
-        const container = document.querySelector('.christmas-lights');
-        const lights = container.querySelectorAll('.light');
-        lights.forEach(light => light.remove());
+      }
+      window.addEventListener("DOMContentLoaded", createChristmasLights);
+      window.addEventListener("resize", () => {
+        const container = document.querySelector(".christmas-lights");
+        const lights = container.querySelectorAll(".light");
+        lights.forEach((light) => light.remove());
         createChristmasLights();
-    });
-</script>
+      });
+    </script>
 
-<!-- HTML -->
-<div class="snowflakes-container" id="snowContainer"></div>
+    <!-- HTML -->
+    <div class="snowflakes-container" id="snowContainer"></div>
 
-<!-- JavaScript -->
-<script>
-    function createSnowflake() {
-        const container = document.getElementById('snowContainer');
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        const snowflakeSymbols = ['❄', '❅', '❆'];
-        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
-        snowflake.style.left = Math.random() * 100 + '%';
+    <!-- JavaScript -->
+    <script>
+      function createSnowflake() {
+        const container = document.getElementById("snowContainer");
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+        const snowflakeSymbols = ["❄", "❅", "❆"];
+        snowflake.textContent =
+          snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+        snowflake.style.left = Math.random() * 100 + "%";
         const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
-        snowflake.style.fontSize = size + 'em';
+        snowflake.style.fontSize = size + "em";
         const duration = Math.random() * 10 + 10; // 10-20 sekuntia
-        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.animationDuration =
+          duration + "s, " + (Math.random() * 2 + 3) + "s";
+        snowflake.style.animationDelay = Math.random() * 5 + "s";
         snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
         container.appendChild(snowflake);
         setTimeout(() => {
-            snowflake.remove();
+          snowflake.remove();
         }, (duration + 5) * 1000);
-    }
-    function startSnowfall() {
+      }
+      function startSnowfall() {
         for (let i = 0; i < 50; i++) {
-            setTimeout(() => createSnowflake(), i * 200);
+          setTimeout(() => createSnowflake(), i * 200);
         }
         setInterval(createSnowflake, 400);
-    }
-    window.addEventListener('DOMContentLoaded', startSnowfall);
-</script>
+      }
+      window.addEventListener("DOMContentLoaded", startSnowfall);
+    </script>
 
     <footer>
-        <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
+      <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
     </footer>
-</body>
+  </body>
 </html>

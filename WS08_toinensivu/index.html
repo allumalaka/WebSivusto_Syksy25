@@ -1,320 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Matrix Sivusto</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            min-height: 100vh;
-            overflow-x: hidden;
-            background: #000;
-            font-family: 'Courier New', monospace;
-            position: relative;
-        }
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: #000;
+        font-family: "Courier New", monospace;
+        position: relative;
+      }
 
-        .matrix-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
+      .matrix-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
 
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            font-size: 20px;
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
-            white-space: nowrap;
-            animation: fall linear infinite;
-        }
+      .matrix-column {
+        position: absolute;
+        top: -100%;
+        font-size: 20px;
+        color: #0f0;
+        text-shadow: 0 0 5px #0f0;
+        white-space: nowrap;
+        animation: fall linear infinite;
+      }
 
-        @keyframes fall {
-            to {
-                top: 100%;
-            }
+      @keyframes fall {
+        to {
+          top: 100%;
         }
+      }
 
-        .navigation {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-            display: none;
-            gap: 15px;
-        }
+      .navigation {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10;
+        display: none;
+        gap: 15px;
+      }
 
-        .navigation.active {
-            display: flex;
-        }
+      .navigation.active {
+        display: flex;
+      }
 
-        .back-to-welcome {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-            display: none;
-            padding: 12px 25px;
-            background: rgba(0, 255, 0, 0.1);
-            color: #0f0;
-            border: 2px solid #0f0;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px #0f0;
-        }
+      .back-to-welcome {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+        display: none;
+        padding: 12px 25px;
+        background: rgba(0, 255, 0, 0.1);
+        color: #0f0;
+        border: 2px solid #0f0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #0f0;
+      }
 
-        .back-to-welcome.active {
-            display: block;
-        }
+      .back-to-welcome.active {
+        display: block;
+      }
 
-        .back-to-welcome:hover {
-            background: rgba(0, 255, 0, 0.3);
-            box-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
-            transform: translateY(-2px);
-        }
+      .back-to-welcome:hover {
+        background: rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
+        transform: translateY(-2px);
+      }
 
-        .nav-button {
-            padding: 12px 25px;
-            background: rgba(0, 255, 0, 0.1);
-            color: #0f0;
-            border: 2px solid #0f0;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px #0f0;
-        }
+      .nav-button {
+        padding: 12px 25px;
+        background: rgba(0, 255, 0, 0.1);
+        color: #0f0;
+        border: 2px solid #0f0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #0f0;
+      }
 
-        .nav-button:hover {
-            background: rgba(0, 255, 0, 0.3);
-            box-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
-            transform: translateY(-2px);
-        }
+      .nav-button:hover {
+        background: rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 20px #0f0, 0 0 30px #0f0;
+        transform: translateY(-2px);
+      }
 
-        .nav-button.active-page {
-            background: rgba(0, 255, 0, 0.3);
-            box-shadow: 0 0 15px #0f0, 0 0 25px #0f0;
-        }
+      .nav-button.active-page {
+        background: rgba(0, 255, 0, 0.3);
+        box-shadow: 0 0 15px #0f0, 0 0 25px #0f0;
+      }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            min-height: 100vh;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+      .content {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
 
-        .content.active {
-            display: flex;
-        }
+      .content.active {
+        display: flex;
+      }
 
-        .welcome-button {
-            font-size: 2.5rem;
-            padding: 30px 60px;
-            background: rgba(0, 255, 0, 0.1);
-            color: #0f0;
-            border: 3px solid #0f0;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            animation: glow 2s ease-in-out infinite;
-            position: relative;
-            z-index: 3;
-        }
+      .welcome-button {
+        font-size: 2.5rem;
+        padding: 30px 60px;
+        background: rgba(0, 255, 0, 0.1);
+        color: #0f0;
+        border: 3px solid #0f0;
+        border-radius: 10px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        animation: glow 2s ease-in-out infinite;
+        position: relative;
+        z-index: 3;
+      }
 
-        .welcome-button:hover {
-            background: rgba(0, 255, 0, 0.3);
-            transform: scale(1.05);
-            box-shadow: 0 0 30px #0f0, 0 0 60px #0f0;
-        }
+      .welcome-button:hover {
+        background: rgba(0, 255, 0, 0.3);
+        transform: scale(1.05);
+        box-shadow: 0 0 30px #0f0, 0 0 60px #0f0;
+      }
 
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
-                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-            }
-            50% {
-                box-shadow: 0 0 20px #0f0, 0 0 40px #0f0, 0 0 60px #0f0, 0 0 80px #0f0;
-                text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0;
-            }
+      @keyframes glow {
+        0%,
+        100% {
+          box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
+          text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
         }
+        50% {
+          box-shadow: 0 0 20px #0f0, 0 0 40px #0f0, 0 0 60px #0f0, 0 0 80px #0f0;
+          text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0;
+        }
+      }
 
-        .page-content h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            color: #0f0;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-            animation: textGlow 2s ease-in-out infinite;
-        }
+      .page-content h1 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        color: #0f0;
+        text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+        animation: textGlow 2s ease-in-out infinite;
+      }
 
-        .page-content p {
-            font-size: 1.2rem;
-            text-align: center;
-            max-width: 700px;
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+      .page-content p {
+        font-size: 1.2rem;
+        text-align: center;
+        max-width: 700px;
+        color: #0f0;
+        text-shadow: 0 0 5px #0f0;
+        line-height: 1.8;
+        margin-bottom: 20px;
+      }
 
-        @keyframes textGlow {
-            0%, 100% {
-                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
-            }
-            50% {
-                text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0, 0 0 50px #0f0;
-            }
+      @keyframes textGlow {
+        0%,
+        100% {
+          text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
         }
+        50% {
+          text-shadow: 0 0 20px #0f0, 0 0 30px #0f0, 0 0 40px #0f0,
+            0 0 50px #0f0;
+        }
+      }
 
-        .page-content {
-            text-align: center;
-        }
+      .page-content {
+        text-align: center;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="matrix-container" id="matrix"></div>
-    
-    <button class="back-to-welcome" id="backToWelcome" onclick="backToWelcome()">← Takaisin</button>
-    
+
+    <button
+      class="back-to-welcome"
+      id="backToWelcome"
+      onclick="backToWelcome()"
+    >
+      ← Takaisin
+    </button>
+
     <div class="navigation" id="navigation">
-        <button class="nav-button" onclick="navigateTo('home')">Etusivu</button>
-        <button class="nav-button" onclick="navigateTo('page1')">Matrix Hologram</button>
-        <button class="nav-button" onclick="navigateTo('page2')">Palvelut</button>
-        <button class="nav-button" onclick="navigateTo('page3')">Yhteystiedot</button>
+      <button class="nav-button" onclick="navigateTo('home')">Etusivu</button>
+      <button class="nav-button" onclick="navigateTo('page1')">
+        Matrix Hologram
+      </button>
+      <button class="nav-button" onclick="navigateTo('page2')">Palvelut</button>
+      <button class="nav-button" onclick="navigateTo('page3')">
+        Yhteystiedot
+      </button>
     </div>
 
     <div class="content active" id="welcome">
-        <button class="welcome-button" onclick="enterSite()">Tervetuloa!</button>
+      <button class="welcome-button" onclick="enterSite()">Tervetuloa!</button>
     </div>
 
     <div class="content" id="home">
-        <div class="page-content">
-            <h1>MATRIX</h1>
-            <p>Tervetuloa Matrix-sivustolleni Täältä voit navigoida kaikkiin sivuston osioihin käyttämällä yläkulman nappeja.</p>
-            <p>Tämä on pääsivu, josta kaikki alkaa. Tutustu muihin sivuihin klikkaamalla navigaationappeja!</p>
-        </div>
+      <div class="page-content">
+        <h1>MATRIX</h1>
+        <p>
+          Tervetuloa Matrix-sivustolleni Täältä voit navigoida kaikkiin sivuston
+          osioihin käyttämällä yläkulman nappeja.
+        </p>
+        <p>
+          Tämä on pääsivu, josta kaikki alkaa. Tutustu muihin sivuihin
+          klikkaamalla navigaationappeja!
+        </p>
+      </div>
     </div>
 
     <div class="content" id="page1">
-        <div class="page-content">
-            <h1>Matrix Hologram</h1>
-            <p>Tämä on ensimmäinen alisivu. Voit lisätä tänne mitä tahansa sisältöä haluat.</p>
-            <p>Navigoi muille sivuille käyttämällä yläkulman nappeja.</p>
-        </div>
+      <div class="page-content">
+        <h1>Matrix Hologram</h1>
+        <p>
+          Tämä on ensimmäinen alisivu. Voit lisätä tänne mitä tahansa sisältöä
+          haluat.
+        </p>
+        <p>Navigoi muille sivuille käyttämällä yläkulman nappeja.</p>
+      </div>
     </div>
 
     <div class="content" id="page2">
-        <div class="page-content">
-            <h1>MATRIX</h1>
-            <p>zzzzzzzzzzzzzzz.</p>
-        </div>
+      <div class="page-content">
+        <h1>MATRIX</h1>
+        <p>zzzzzzzzzzzzzzz.</p>
+      </div>
     </div>
 
     <div class="content" id="page3">
-        <div class="page-content">
-            <h1>MATRIX</h1>
-            <p>zzzzzzzzzzzzzzzz.</p>
-        </div>
+      <div class="page-content">
+        <h1>MATRIX</h1>
+        <p>zzzzzzzzzzzzzzzz.</p>
+      </div>
     </div>
 
     <script>
-        const matrix = document.getElementById('matrix');
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()';
-        const columnCount = Math.floor(window.innerWidth / 25);
+      const matrix = document.getElementById("matrix");
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+      const columnCount = Math.floor(window.innerWidth / 25);
 
-        function createColumn() {
-            const column = document.createElement('div');
-            column.className = 'matrix-column';
-            
-            let text = '';
-            const length = Math.floor(Math.random() * 20) + 10;
-            for (let i = 0; i < length; i++) {
-                text += chars[Math.floor(Math.random() * chars.length)] + '<br>';
-            }
-            column.innerHTML = text;
-            
-            column.style.left = Math.random() * 100 + '%';
-            column.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            column.style.animationDelay = Math.random() * 2 + 's';
-            column.style.opacity = Math.random() * 0.5 + 0.5;
-            
-            matrix.appendChild(column);
-            
-            setTimeout(() => {
-                column.remove();
-                createColumn();
-            }, (parseFloat(column.style.animationDuration) + parseFloat(column.style.animationDelay)) * 1000);
+      function createColumn() {
+        const column = document.createElement("div");
+        column.className = "matrix-column";
+
+        let text = "";
+        const length = Math.floor(Math.random() * 20) + 10;
+        for (let i = 0; i < length; i++) {
+          text += chars[Math.floor(Math.random() * chars.length)] + "<br>";
         }
+        column.innerHTML = text;
 
-        for (let i = 0; i < columnCount; i++) {
-            setTimeout(() => createColumn(), i * 100);
-        }
+        column.style.left = Math.random() * 100 + "%";
+        column.style.animationDuration = Math.random() * 3 + 4 + "s";
+        column.style.animationDelay = Math.random() * 2 + "s";
+        column.style.opacity = Math.random() * 0.5 + 0.5;
 
-        window.addEventListener('resize', () => {
-            location.reload();
+        matrix.appendChild(column);
+
+        setTimeout(() => {
+          column.remove();
+          createColumn();
+        }, (parseFloat(column.style.animationDuration) + parseFloat(column.style.animationDelay)) * 1000);
+      }
+
+      for (let i = 0; i < columnCount; i++) {
+        setTimeout(() => createColumn(), i * 100);
+      }
+
+      window.addEventListener("resize", () => {
+        location.reload();
+      });
+
+      function enterSite() {
+        document.getElementById("welcome").classList.remove("active");
+        document.getElementById("home").classList.add("active");
+        document.getElementById("navigation").classList.add("active");
+        document.getElementById("backToWelcome").classList.add("active");
+        updateActiveButton("home");
+      }
+
+      function navigateTo(pageId) {
+        document.querySelectorAll(".content").forEach((page) => {
+          page.classList.remove("active");
         });
+        document.getElementById(pageId).classList.add("active");
+        updateActiveButton(pageId);
+      }
 
-        function enterSite() {
-            document.getElementById('welcome').classList.remove('active');
-            document.getElementById('home').classList.add('active');
-            document.getElementById('navigation').classList.add('active');
-            document.getElementById('backToWelcome').classList.add('active');
-            updateActiveButton('home');
-        }
+      function backToWelcome() {
+        document.querySelectorAll(".content").forEach((page) => {
+          page.classList.remove("active");
+        });
+        document.getElementById("welcome").classList.add("active");
+        document.getElementById("navigation").classList.remove("active");
+        document.getElementById("backToWelcome").classList.remove("active");
+      }
 
-        function navigateTo(pageId) {
-            document.querySelectorAll('.content').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-            updateActiveButton(pageId);
-        }
+      function updateActiveButton(pageId) {
+        const buttons = document.querySelectorAll(".nav-button");
+        buttons.forEach((btn) => btn.classList.remove("active-page"));
 
-        function backToWelcome() {
-            document.querySelectorAll('.content').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById('welcome').classList.add('active');
-            document.getElementById('navigation').classList.remove('active');
-            document.getElementById('backToWelcome').classList.remove('active');
-        }
+        const buttonTexts = {
+          home: "Etusivu",
+          page1: "Sivu 1",
+          page2: "Sivu 2",
+          page3: "Sivu 3",
+        };
 
-        function updateActiveButton(pageId) {
-            const buttons = document.querySelectorAll('.nav-button');
-            buttons.forEach(btn => btn.classList.remove('active-page'));
-            
-            const buttonTexts = {
-                'home': 'Etusivu',
-                'page1': 'Sivu 1',
-                'page2': 'Sivu 2',
-                'page3': 'Sivu 3'
-            };
-            
-            buttons.forEach(btn => {
-                if (btn.textContent === buttonTexts[pageId]) {
-                    btn.classList.add('active-page');
-                }
-            });
-        }
+        buttons.forEach((btn) => {
+          if (btn.textContent === buttonTexts[pageId]) {
+            btn.classList.add("active-page");
+          }
+        });
+      }
     </script>
-</body>
+  </body>
 </html>

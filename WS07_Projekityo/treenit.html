@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="fi">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TESTOGym - Treenit</title>
     <link rel="stylesheet" href="styles/style.css">
     <style>
-    .toggle-btn {
+      .toggle-btn {
         position: fixed;
         top: 20px;
         right: 20px;
@@ -22,167 +22,168 @@
         gap: 8px;
         transition: all 0.3s ease;
         z-index: 1000;
-    }
+      }
 
-    .toggle-btn:hover {
+      .toggle-btn:hover {
         background: #f3f4f6;
         transform: translateY(-2px);
-    }
+      }
 
-    body.colorblind-mode {
+      body.colorblind-mode {
         filter: grayscale(100%) contrast(120%);
-    }
+      }
 
-    body.colorblind-mode .toggle-btn {
+      body.colorblind-mode .toggle-btn {
         background: #1f2937;
         color: #fcd34d;
         filter: none;
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <nav class="navbar">
-        <div class="nav-container">
-            <h1 class="logo">TESTOGym</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Etusivu</a></li>
-                <li><a href="treenit.html" class="active">Treenit</a></li>
-                <li><a href="ruokavalio.html">Ruokavalio</a></li>
-                <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
-            </ul>
-        </div>
+      <div class="nav-container">
+        <h1 class="logo">TESTOGym</h1>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Etusivu</a></li>
+          <li><a href="treenit.html" class="active">Treenit</a></li>
+          <li><a href="ruokavalio.html">Ruokavalio</a></li>
+          <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
     </nav>
 
     <main class="container">
-        <h1>Treeniohjelmat</h1>
-        
-        <section class="workout-section">
-            <div class="workout-card">
-                <h2>🔰 Aloittelijan ohjelma</h2>
-                <p><strong>3 kertaa viikossa</strong></p>
-                <ul>
-                    <li>Kyykky 3x10</li>
-                    <li>Penkkipunnerrus 3x10</li>
-                    <li>Kulmasoutu 3x10</li>
-                    <li>Olkapääpunnerrus 3x10</li>
-                    <li>Maastaveto 3x8</li>
-                </ul>
-            </div>
 
-            <button class="toggle-btn" onclick="toggleColorBlindMode()">
-    <span id="icon">👁️</span>
-    <span id="btnText">Color Blind -tila</span>
-</button>
+      <section class="workout-section">
+        <div class="workout-card">
+          <h2>🔰 Aloittelijan ohjelma</h2>
+          <p><strong>3 kertaa viikossa</strong></p>
+          <ul>
+            <li>Kyykky 3x10</li>
+            <li>Penkkipunnerrus 3x10</li>
+            <li>Kulmasoutu 3x10</li>
+            <li>Olkapääpunnerrus 3x10</li>
+            <li>Maastaveto 3x8</li>
+          </ul>
+        </div>
 
-<script>
-    function toggleColorBlindMode() {
-        const body = document.body;
-        const icon = document.getElementById('icon');
-        const btnText = document.getElementById('btnText');
-        
-        body.classList.toggle('colorblind-mode');
-        
-        if (body.classList.contains('colorblind-mode')) {
-            icon.textContent = '👁️';
-            btnText.textContent = 'Normaali tila';
-        } else {
-            icon.textContent = '🚫';
-            btnText.textContent = 'Color Blind -tila';
-        }
-    }
-</script>
+        <button class="toggle-btn" onclick="toggleColorBlindMode()">
+          <span id="icon">👁️</span>
+          <span id="btnText">Color Blind -tila</span>
+        </button>
 
-            <div class="workout-card">
-                <h2>💪 Keskitason ohjelma</h2>
-                <p><strong>4-5 kertaa viikossa (split)</strong></p>
-                <ul>
-                    <li><strong>Maanantai:</strong> Rinta + Hauikset</li>
-                    <li><strong>Tiistai:</strong> Selkä + Ojentajat</li>
-                    <li><strong>Torstai:</strong> Jalat + Vatsa</li>
-                    <li><strong>Perjantai:</strong> Olkapäät + Hauikset</li>
-                </ul>
-            </div>
+        <script>
+          function toggleColorBlindMode() {
+            const body = document.body;
+            const icon = document.getElementById("icon");
+            const btnText = document.getElementById("btnText");
 
-            <div class="workout-card">
-                <h2>🏆 Edistyneen ohjelma</h2>
-                <p><strong>5-6 kertaa viikossa (PPL)</strong></p>
-                <ul>
-                    <li><strong>Push:</strong> Rinta, olkapäät, ojentajat</li>
-                    <li><strong>Pull:</strong> Selkä, hauikset</li>
-                    <li><strong>Legs:</strong> Jalat kokonaan</li>
-                    <li>Toistetaan kahdesti viikossa</li>
-                </ul>
-            </div>
-        </section>
+            body.classList.toggle("colorblind-mode");
 
-    
-        <section class="tips">
-            <h2>Treenivinkkejä</h2>
-            <ul>
-                <li>Muista lämmitellä ennen treeniä</li>
-                <li>Keskity tekniikkaan ennen painojen lisäämistä</li>
-                <li>Lepo on yhtä tärkeää kuin treeni</li>
-                <li>Progressiivinen ylikuormitus on avain kehitykseen</li>
-            </ul>
-        </section>
+            if (body.classList.contains("colorblind-mode")) {
+              icon.textContent = "👁️";
+              btnText.textContent = "Normaali tila";
+            } else {
+              icon.textContent = "🚫";
+              btnText.textContent = "Color Blind -tila";
+            }
+          }
+        </script>
+
+        <div class="workout-card">
+          <h2>💪 Keskitason ohjelma</h2>
+          <p><strong>4-5 kertaa viikossa (split)</strong></p>
+          <ul>
+            <li><strong>Maanantai:</strong> Rinta + Hauikset</li>
+            <li><strong>Tiistai:</strong> Selkä + Ojentajat</li>
+            <li><strong>Torstai:</strong> Jalat + Vatsa</li>
+            <li><strong>Perjantai:</strong> Olkapäät + Hauikset</li>
+          </ul>
+        </div>
+
+        <div class="workout-card">
+          <h2>🏆 Edistyneen ohjelma</h2>
+          <p><strong>5-6 kertaa viikossa (PPL)</strong></p>
+          <ul>
+            <li><strong>Push:</strong> Rinta, olkapäät, ojentajat</li>
+            <li><strong>Pull:</strong> Selkä, hauikset</li>
+            <li><strong>Legs:</strong> Jalat kokonaan</li>
+            <li>Toistetaan kahdesti viikossa</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tips">
+        <h2>Treenivinkkejä</h2>
+        <ul>
+          <li>Muista lämmitellä ennen treeniä</li>
+          <li>Keskity tekniikkaan ennen painojen lisäämistä</li>
+          <li>Lepo on yhtä tärkeää kuin treeni</li>
+          <li>Progressiivinen ylikuormitus on avain kehitykseen</li>
+        </ul>
+      </section>
     </main>
 
     <!-- HTML -->
-<div class="snowflakes-container" id="snowContainer"></div>
+    <div class="snowflakes-container" id="snowContainer"></div>
 
-<!-- JavaScript -->
-<script>
-    function createSnowflake() {
-        const container = document.getElementById('snowContainer');
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
+    <!-- JavaScript -->
+    <script>
+      function createSnowflake() {
+        const container = document.getElementById("snowContainer");
+        const snowflake = document.createElement("div");
+        snowflake.classList.add("snowflake");
+
         // Vaihtelevat lumihiutaleet
-        const snowflakeSymbols = ['❄', '❅', '❆'];
-        snowflake.textContent = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
-        
+        const snowflakeSymbols = ["❄", "❅", "❆"];
+        snowflake.textContent =
+          snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+
         // Satunnainen sijainti
-        snowflake.style.left = Math.random() * 100 + '%';
-        
+        snowflake.style.left = Math.random() * 100 + "%";
+
         // Satunnainen koko
         const size = Math.random() * 0.8 + 0.5; // 0.5-1.3em
-        snowflake.style.fontSize = size + 'em';
-        
+        snowflake.style.fontSize = size + "em";
+
         // Satunnainen putoamisnopeus
         const duration = Math.random() * 10 + 10; // 10-20 sekuntia
-        snowflake.style.animationDuration = duration + 's, ' + (Math.random() * 2 + 3) + 's';
-        
+        snowflake.style.animationDuration =
+          duration + "s, " + (Math.random() * 2 + 3) + "s";
+
         // Satunnainen viive
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        
+        snowflake.style.animationDelay = Math.random() * 5 + "s";
+
         // Satunnainen läpinäkyvyys
         snowflake.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1
-        
+
         container.appendChild(snowflake);
-        
+
         // Poista lumihiutale kun se on pudonnut
         setTimeout(() => {
-            snowflake.remove();
+          snowflake.remove();
         }, (duration + 5) * 1000);
-    }
+      }
 
-    // Luo lumihiutaleita säännöllisesti
-    function startSnowfall() {
+      // Luo lumihiutaleita säännöllisesti
+      function startSnowfall() {
         // Luo alkuhiutaleet
         for (let i = 0; i < 50; i++) {
-            setTimeout(() => createSnowflake(), i * 200);
+          setTimeout(() => createSnowflake(), i * 200);
         }
-        
+
         // Jatka luomista
         setInterval(createSnowflake, 400);
-    }
+      }
 
-    // Käynnistä lumisade kun sivu on ladattu
-    window.addEventListener('DOMContentLoaded', startSnowfall);
-</script>
+      // Käynnistä lumisade kun sivu on ladattu
+      window.addEventListener("DOMContentLoaded", startSnowfall);
+    </script>
 
     <footer>
-        <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
+      <p>&copy; 2025 TESTOGym. Kaikki oikeudet pidätetään.</p>
     </footer>
-</body>
+  </body>
 </html>
