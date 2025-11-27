@@ -7,7 +7,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #222121;
+    color: #ffffff;
     background-color: #ffffff;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: rgb(255, 255, 255);
     text-decoration: none;
     font-weight: 500;
     transition: opacity 0.3s;
@@ -190,7 +190,7 @@ body {
 
 /* Nutrition section */
 .nutrition-intro {
-    background: white;
+    background: linear-gradient(135deg, #1d1d1d 0%, #4740d7 100%);
     padding: 1.5rem;
     border-radius: 10px;
     margin-bottom: 2rem;
@@ -206,7 +206,7 @@ body {
 }
 
 .nutrition-card {
-    background: white;
+    background: linear-gradient(135deg, #1d1d1d, #4740d7 100%);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
