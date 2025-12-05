@@ -635,3 +635,20 @@ footer {
             transform: scale(1);
         }
     }
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* säädä korkeutta */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  background-image: url("../images/ball-1906468_1280.png"); /* oma kuvapolkusi */
+  background-size: 800px 700px; /* säädä kuvakokoa */
+  background-repeat: repeat-x; /* toista pystysuunnassa */
+  background-position: left center; /* kuva vasemmalla */
+  padding-left: 0vw; /* lisää tilaa kuvan leveydelle */
+}
+
