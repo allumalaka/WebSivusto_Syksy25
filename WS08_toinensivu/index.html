@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON CLUB - Future of Dining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #0a0a0a, #1a0a2e, #16213e, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff00ff, transparent);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #00ffff, transparent);
+            top: 50%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #ffff00, transparent);
+            bottom: 10%;
+            left: 50%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 50px) scale(0.9); }
+            75% { transform: translate(70px, 30px) scale(1.05); }
+        }
+
+        /* Moving Lights */
+        .moving-light {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .light1 {
+            background: radial-gradient(circle, #ff00ff, transparent);
+            animation: moveDiagonal1 8s linear infinite;
+        }
+
+        .light2 {
+            background: radial-gradient(circle, #00ffff, transparent);
+            animation: moveDiagonal2 10s linear infinite;
+            animation-delay: 2s;
+        }
+
+        .light3 {
+            background: radial-gradient(circle, #ffff00, transparent);
+            animation: moveVertical 12s linear infinite;
+            animation-delay: 4s;
+        }
+
+        .light4 {
+            background: radial-gradient(circle, #ff0099, transparent);
+            animation: moveHorizontal 9s linear infinite;
+            animation-delay: 1s;
+        }
+
+        @keyframes moveDiagonal1 {
+            0% {
+                top: -10%;
+                left: -10%;
+            }
+            100% {
+                top: 110%;
+                left: 110%;
+            }
+        }
+
+        @keyframes moveDiagonal2 {
+            0% {
+                top: -10%;
+                right: -10%;
+            }
+            100% {
+                top: 110%;
+                right: 110%;
+            }
+        }
+
+        @keyframes moveVertical {
+            0% {
+                top: -10%;
+                left: 50%;
+            }
+            50% {
+                top: 110%;
+                left: 50%;
+            }
+            51% {
+                top: -10%;
+                left: 20%;
+            }
+            100% {
+                top: 110%;
+                left: 20%;
+            }
+        }
+
+        @keyframes moveHorizontal {
+            0% {
+                left: -10%;
+                top: 30%;
+            }
+            50% {
+                left: 110%;
+                top: 30%;
+            }
+            51% {
+                left: -10%;
+                top: 70%;
+            }
+            100% {
+                left: 110%;
+                top: 70%;
+            }
+        }
+
+        /* Lightning Bolts */
+        .lightning {
+            position: fixed;
+            width: 2px;
+            height: 100vh;
+            background: linear-gradient(to bottom, 
+                transparent,
+                #00ffff,
+                #ffffff,
+                #00ffff,
+                transparent);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00ffff;
+        }
+
+        .lightning1 {
+            left: 20%;
+            animation: lightning1Strike 8s infinite;
+        }
+
+        .lightning2 {
+            left: 50%;
+            animation: lightning2Strike 10s infinite;
+            animation-delay: 3s;
+        }
+
+        .lightning3 {
+            left: 80%;
+            animation: lightning3Strike 12s infinite;
+            animation-delay: 6s;
+        }
+
+        @keyframes lightning1Strike {
+            0%, 100% { opacity: 0; transform: scaleY(0); }
+            49% { opacity: 0; transform: scaleY(0); }
+            50% { opacity: 1; transform: scaleY(1); }
+            51% { opacity: 0; transform: scaleY(0); }
+            52% { opacity: 1; transform: scaleY(1); }
+            53% { opacity: 0; transform: scaleY(0); }
+        }
+
+        @keyframes lightning2Strike {
+            0%, 100% { opacity: 0; transform: scaleY(0); }
+            44% { opacity: 0; transform: scaleY(0); }
+            45% { opacity: 1; transform: scaleY(1); }
+            46% { opacity: 0; transform: scaleY(0); }
+            47% { opacity: 0.8; transform: scaleY(1); }
+            48% { opacity: 0; transform: scaleY(0); }
+        }
+
+        @keyframes lightning3Strike {
+            0%, 100% { opacity: 0; transform: scaleY(0); }
+            39% { opacity: 0; transform: scaleY(0); }
+            40% { opacity: 1; transform: scaleY(1); }
+            40.5% { opacity: 0; transform: scaleY(0); }
+            41% { opacity: 1; transform: scaleY(1); }
+            41.5% { opacity: 0; transform: scaleY(0); }
+            42% { opacity: 0.6; transform: scaleY(1); }
+            43% { opacity: 0; transform: scaleY(0); }
+        }
+
+        /* Electric Lines */
+        .electric-line {
+            position: fixed;
+            height: 2px;
+            background: linear-gradient(to right,
+                transparent,
+                #ff00ff,
+                #ffffff,
+                #ff00ff,
+                transparent);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+        }
+
+        .electric1 {
+            top: 20%;
+            width: 100%;
+            animation: electricPulse1 6s infinite;
+        }
+
+        .electric2 {
+            top: 60%;
+            width: 100%;
+            animation: electricPulse2 8s infinite;
+            animation-delay: 2s;
+        }
+
+        .electric3 {
+            top: 80%;
+            width: 100%;
+            animation: electricPulse3 7s infinite;
+            animation-delay: 4s;
+        }
+
+        @keyframes electricPulse1 {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            48% { opacity: 0; transform: scaleX(0); }
+            49% { opacity: 1; transform: scaleX(1); }
+            50% { opacity: 0; transform: scaleX(0); }
+            51% { opacity: 0.7; transform: scaleX(1); }
+            52% { opacity: 0; transform: scaleX(0); }
+        }
+
+        @keyframes electricPulse2 {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            58% { opacity: 0; transform: scaleX(0); }
+            59% { opacity: 1; transform: scaleX(1); }
+            59.5% { opacity: 0; transform: scaleX(0); }
+            60% { opacity: 0.8; transform: scaleX(1); }
+            61% { opacity: 0; transform: scaleX(0); }
+        }
+
+        @keyframes electricPulse3 {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            68% { opacity: 0; transform: scaleX(0); }
+            69% { opacity: 1; transform: scaleX(1); }
+            69.3% { opacity: 0; transform: scaleX(0); }
+            69.6% { opacity: 1; transform: scaleX(1); }
+            70% { opacity: 0; transform: scaleX(0); }
+        }
+
+        /* Diagonal Lightning */
+        .diagonal-lightning {
+            position: fixed;
+            width: 3px;
+            height: 150vh;
+            background: linear-gradient(to bottom,
+                transparent,
+                #ffff00,
+                #ffffff,
+                #ffff00,
+                transparent);
+            opacity: 0;
+            z-index: 1;
+            pointer-events: none;
+            box-shadow: 0 0 25px #ffff00, 0 0 50px #ffff00;
+            transform-origin: top center;
+        }
+
+        .diag1 {
+            left: 10%;
+            top: -50%;
+            transform: rotate(25deg);
+            animation: diagStrike1 9s infinite;
+        }
+
+        .diag2 {
+            right: 15%;
+            top: -50%;
+            transform: rotate(-30deg);
+            animation: diagStrike2 11s infinite;
+            animation-delay: 3s;
+        }
+
+        .diag3 {
+            left: 60%;
+            top: -50%;
+            transform: rotate(20deg);
+            animation: diagStrike3 13s infinite;
+            animation-delay: 6s;
+            background: linear-gradient(to bottom,
+                transparent,
+                #ff00ff,
+                #ffffff,
+                #ff00ff,
+                transparent);
+            box-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff;
+        }
+
+        .diag4 {
+            left: 35%;
+            top: -50%;
+            transform: rotate(-20deg);
+            animation: diagStrike4 10s infinite;
+            animation-delay: 8s;
+            background: linear-gradient(to bottom,
+                transparent,
+                #00ffff,
+                #ffffff,
+                #00ffff,
+                transparent);
+            box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+        }
+
+        @keyframes diagStrike1 {
+            0%, 100% { opacity: 0; }
+            54% { opacity: 0; }
+            55% { opacity: 1; }
+            55.5% { opacity: 0; }
+            56% { opacity: 0.9; }
+            56.5% { opacity: 0; }
+            57% { opacity: 0.7; }
+            58% { opacity: 0; }
+        }
+
+        @keyframes diagStrike2 {
+            0%, 100% { opacity: 0; }
+            44% { opacity: 0; }
+            45% { opacity: 1; }
+            45.3% { opacity: 0; }
+            45.6% { opacity: 1; }
+            46% { opacity: 0; }
+        }
+
+        @keyframes diagStrike3 {
+            0%, 100% { opacity: 0; }
+            64% { opacity: 0; }
+            65% { opacity: 1; }
+            65.4% { opacity: 0; }
+            65.8% { opacity: 0.8; }
+            66.2% { opacity: 0; }
+            66.6% { opacity: 0.6; }
+            67% { opacity: 0; }
+        }
+
+        @keyframes diagStrike4 {
+            0%, 100% { opacity: 0; }
+            74% { opacity: 0; }
+            75% { opacity: 1; }
+            75.2% { opacity: 0; }
+            75.4% { opacity: 1; }
+            75.6% { opacity: 0; }
+        }
+
+        /* Header */
+        header {
+            padding: 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 0, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease infinite;
+            text-shadow: 0 0 80px rgba(255, 0, 255, 0.8);
+            letter-spacing: 5px;
+        }
+
+        .glow-text {
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Neon Button */
+        .neon-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            margin: 1rem;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 3px solid #ff00ff;
+            border-radius: 50px;
+            position: relative;
+            background: transparent;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px #ff00ff, inset 0 0 20px transparent;
+        }
+
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #ff00ff, transparent);
+            transition: left 0.5s;
+        }
+
+        .neon-btn:hover::before {
+            left: 100%;
+        }
+
+        .neon-btn:hover {
+            box-shadow: 0 0 40px #ff00ff, inset 0 0 40px rgba(255, 0, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .neon-btn.cyan {
+            border-color: #00ffff;
+            box-shadow: 0 0 20px #00ffff, inset 0 0 20px transparent;
+        }
+
+        .neon-btn.cyan::before {
+            background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        }
+
+        .neon-btn.cyan:hover {
+            box-shadow: 0 0 40px #00ffff, inset 0 0 40px rgba(0, 255, 255, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 4rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(255, 0, 255, 0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 0, 255, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+        }
+
+        .feature-card p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        /* Menu Preview */
+        .menu-preview {
+            padding: 5rem 2rem;
+            background: rgba(255, 0, 255, 0.05);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto;
+        }
+
+        .menu-item {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .menu-item:hover {
+            border-color: #00ffff;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .menu-item h3 {
+            color: #ff00ff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 15px #ff00ff;
+        }
+
+        .price {
+            color: #00ffff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            background: rgba(10, 10, 10, 0.9);
+            border-top: 2px solid rgba(255, 0, 255, 0.3);
+        }
+
+        footer p {
+            color: #888;
+            margin: 0.5rem 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .glow-text {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+    
+    <!-- Moving Lights -->
+    <div class="moving-light light1"></div>
+    <div class="moving-light light2"></div>
+    <div class="moving-light light3"></div>
+    <div class="moving-light light4"></div>
+    
+    <!-- Lightning Bolts -->
+    <div class="lightning lightning1"></div>
+    <div class="lightning lightning2"></div>
+    <div class="lightning lightning3"></div>
+    
+    <!-- Electric Lines -->
+    <div class="electric-line electric1"></div>
+    <div class="electric-line electric2"></div>
+    <div class="electric-line electric3"></div>
+    
+    <!-- Diagonal Lightning -->
+    <div class="diagonal-lightning diag1"></div>
+    <div class="diagonal-lightning diag2"></div>
+    <div class="diagonal-lightning diag3"></div>
+    <div class="diagonal-lightning diag4"></div>
+
+    <header>
+        <nav>
+            <div class="logo">NEON CLUB</div>
+            <ul class="nav-links">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>NEON CLUB</h1>
+            <p class="glow-text">Experience the Future of Fine Dining</p>
+            <a href="#menu" class="neon-btn">EXPLORE MENU</a>
+            <a href="#contact" class="neon-btn cyan">BOOK A TABLE</a>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <h2>WHY CHOOSE US</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>Futuristic Atmosphere</h3>
+                <p>Immerse yourself in a stunning neon-lit environment that blends cutting-edge design with exceptional comfort.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Molecular Gastronomy</h3>
+                <p>Experience innovative dishes created with modern culinary techniques and the finest ingredients.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3>Live DJ Sets</h3>
+                <p>Enjoy curated electronic music from top DJs while you dine in style.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🍸</div>
+                <h3>Signature Cocktails</h3>
+                <p>Sip on glowing cocktails crafted by our expert mixologists using cutting-edge techniques.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>VIP Experience</h3>
+                <p>Book our exclusive VIP sections for a premium dining experience like no other.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>AR Menu</h3>
+                <p>Explore our menu through augmented reality and see your dishes come to life before ordering.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-preview" id="menu">
+        <div class="features">
+            <h2>SIGNATURE DISHES</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Neon Tuna Tartare</h3>
+                    <p>Fresh bluefin tuna with edible flowers and glowing caviar</p>
+                    <p class="price">€28</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Cyber Wagyu Steak</h3>
+                    <p>A5 Wagyu beef with molecular foam and truffle essence</p>
+                    <p class="price">€65</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Digital Lobster</h3>
+                    <p>Maine lobster with holographic glaze and citrus pearls</p>
+                    <p class="price">€45</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Cosmic Chocolate</h3>
+                    <p>Deconstructed chocolate sphere with liquid nitrogen ice cream</p>
+                    <p class="price">€18</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Electric Mojito</h3>
+                    <p>Glowing cocktail with bio-luminescent garnish</p>
+                    <p class="price">€15</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Fusion Sushi Roll</h3>
+                    <p>Rainbow sushi with edible LED decoration</p>
+                    <p class="price">€32</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2 style="color: #ff00ff; text-shadow: 0 0 20px #ff00ff; margin-bottom: 1rem;">GET IN TOUCH</h2>
+        <p>📍 123 Neon Street, Helsinki 00100</p>
+        <p>📞 +358 40 NEON CLUB</p>
+        <p>📧 info@neonclub.fi</p>
+        <div class="social-links">
+            <a href="#">📱</a>
+            <a href="#">🎵</a>
+            <a href="#">📷</a>
+        </div>
+        <p style="margin-top: 2rem;">&copy; 2024 NEON CLUB. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
